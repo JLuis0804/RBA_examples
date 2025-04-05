@@ -1,8 +1,8 @@
 version 3
-run General-0-20250402-12:35:24-11032
+run General-0-20250402-16:15:03-3300
 attr configname General
-attr datetime 20250402-12:35:24
-attr datetimef 20250402-123524
+attr datetime 20250402-16:15:03
+attr datetimef 20250402-161503
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network RSVPTE4
-attr processid 11032
+attr processid 3300
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -56,7 +56,7 @@ attr mutable ""
 par RSVPTE4.LSR1.pppg$o[0].channel delay 0.015s
 attr mutable ""
 attr unit s
-par RSVPTE4.LSR1.pppg$o[0].channel datarate 150000bps
+par RSVPTE4.LSR1.pppg$o[0].channel datarate 600000bps
 attr mutable ""
 attr unit bps
 par RSVPTE4.LSR1.pppg$o[0].channel ber 0
@@ -69,7 +69,7 @@ attr mutable ""
 par RSVPTE4.LSR2.pppg$o[0].channel delay 0.015s
 attr mutable ""
 attr unit s
-par RSVPTE4.LSR2.pppg$o[0].channel datarate 150000bps
+par RSVPTE4.LSR2.pppg$o[0].channel datarate 600000bps
 attr mutable ""
 attr unit bps
 par RSVPTE4.LSR2.pppg$o[0].channel ber 0
@@ -558,12 +558,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsNoInterfaceFound(packetDropped)
 attr title "packet drop: no interface found, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ipv4.ip packetDropNoRouteFound:count 12
+scalar RSVPTE4.LSR1.ipv4.ip packetDropNoRouteFound:count 9
 attr interpolationmode none
 attr recordingmode count
 attr source packetDropReasonIsNoRouteFound(packetDropped)
 attr title "packet drop: no route found, count"
-scalar RSVPTE4.LSR1.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 1872
+scalar RSVPTE4.LSR1.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 1404
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsNoRouteFound(packetDropped)
@@ -695,14 +695,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, last"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[0].queue queueLength:max 10
+scalar RSVPTE4.LSR1.ppp[0].queue queueLength:max 4
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[0].queue queueLength:timeavg 0.0437234800099
+scalar RSVPTE4.LSR1.ppp[0].queue queueLength:timeavg 0.23289381720618
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -716,14 +716,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar RSVPTE4.LSR1.ppp[0].queue queueBitLength:max 16768
+scalar RSVPTE4.LSR1.ppp[0].queue queueBitLength:max 5056
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR1.ppp[0].queue queueBitLength:timeavg 50.975286535491
+scalar RSVPTE4.LSR1.ppp[0].queue queueBitLength:timeavg 289.83716004942
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -731,137 +731,111 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[0].queue queueingTime:histogram
-field count 5187
-field mean 0.00042147175640929
-field stddev 0.0049426749437476
+field count 10376
+field mean 0.001122271671194
+field stddev 0.0011594006564745
 field min 0
-field max 0.121200796742
-field sum 2.186174000495
-field sqrsum 0.12761557521507
+field max 0.007969375454
+field sum 11.644690860309
+field sqrsum 0.02701468420051
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	5075
-bin	0.002	20
-bin	0.004	14
-bin	0.006	33
-bin	0.008	5
-bin	0.01	9
-bin	0.012	7
-bin	0.014	4
-bin	0.016	1
-bin	0.018	0
-bin	0.02	2
-bin	0.022	0
-bin	0.024	0
-bin	0.026	0
-bin	0.028	1
-bin	0.03	0
-bin	0.032	0
-bin	0.034	0
-bin	0.036	0
-bin	0.038	1
-bin	0.04	2
-bin	0.042	0
-bin	0.044	1
-bin	0.046	1
-bin	0.048	0
-bin	0.05	1
-bin	0.052	0
-bin	0.054	0
-bin	0.056	0
-bin	0.058	0
-bin	0.06	0
-bin	0.062	0
-bin	0.064	0
-bin	0.066	0
-bin	0.068	0
-bin	0.07	0
-bin	0.072	0
-bin	0.074	0
-bin	0.076	0
-bin	0.078	0
-bin	0.08	0
-bin	0.082	0
-bin	0.084	0
-bin	0.086	0
-bin	0.088	0
-bin	0.09	0
-bin	0.092	0
-bin	0.094	1
-bin	0.096	1
-bin	0.098	2
-bin	0.1	0
-bin	0.102	3
-bin	0.104	0
-bin	0.106	2
-bin	0.108	0
-bin	0.11	0
-bin	0.112	0
-bin	0.114	0
-bin	0.116	0
-bin	0.118	0
-bin	0.12	1
-bin	0.122	0
-bin	0.124	0
-bin	0.126	0
-bin	0.128	0
-bin	0.13	0
-bin	0.132	0
-bin	0.134	0
-bin	0.136	0
-bin	0.138	0
-bin	0.14	0
-bin	0.142	0
-bin	0.144	0
-bin	0.146	0
-bin	0.148	0
-bin	0.15	0
-bin	0.152	0
-scalar RSVPTE4.LSR1.ppp[0].queue outgoingPackets:count 5187
+bin	0	5248
+bin	0.0002	1
+bin	0.0004	0
+bin	0.0006	3
+bin	0.0008	1
+bin	0.001	0
+bin	0.0012	1
+bin	0.0014	4
+bin	0.0016	11
+bin	0.0018	0
+bin	0.002	96
+bin	0.0022	4894
+bin	0.0024	1
+bin	0.0026	0
+bin	0.0028	1
+bin	0.003	3
+bin	0.0032	1
+bin	0.0034	0
+bin	0.0036	4
+bin	0.0038	1
+bin	0.004	1
+bin	0.0042	96
+bin	0.0044	1
+bin	0.0046	1
+bin	0.0048	0
+bin	0.005	0
+bin	0.0052	3
+bin	0.0054	0
+bin	0.0056	1
+bin	0.0058	1
+bin	0.006	0
+bin	0.0062	1
+bin	0.0064	0
+bin	0.0066	0
+bin	0.0068	0
+bin	0.007	0
+bin	0.0072	0
+bin	0.0074	0
+bin	0.0076	0
+bin	0.0078	1
+bin	0.008	0
+bin	0.0082	0
+bin	0.0084	0
+bin	0.0086	0
+bin	0.0088	0
+bin	0.009	0
+bin	0.0092	0
+bin	0.0094	0
+bin	0.0096	0
+bin	0.0098	0
+bin	0.01	0
+scalar RSVPTE4.LSR1.ppp[0].queue outgoingPackets:count 10376
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[0].queue outgoingPacketLengths:sum 6360960
+scalar RSVPTE4.LSR1.ppp[0].queue outgoingPacketLengths:sum 12832808
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[0].queue outgoingPacketLengths:histogram
-field count 5187
-field mean 1226.3273568537
-field stddev 286.07157435051
+field count 10376
+field mean 1236.7779491133
+field stddev 184.76979057175
 field min 168
-field max 12000
-field sum 6360960
-field sqrsum 8225025664
+field max 8224
+field sum 12832808
+field sqrsum 16225535168
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
-bin	0	249
+bin	0	250
 bin	200	0
 bin	400	1
-bin	600	25
+bin	600	18
 bin	800	11
 bin	1000	0
-bin	1200	4894
-bin	1400	1
+bin	1200	10092
+bin	1400	0
 bin	1600	0
-bin	1800	3
+bin	1800	2
 bin	2000	0
 bin	2200	0
 bin	2400	0
 bin	2600	0
 bin	2800	0
-bin	3000	2
+bin	3000	1
 bin	3200	0
 bin	3400	0
 bin	3600	0
@@ -887,7 +861,7 @@ bin	7400	0
 bin	7600	0
 bin	7800	0
 bin	8000	0
-bin	8200	0
+bin	8200	1
 bin	8400	0
 bin	8600	0
 bin	8800	0
@@ -899,29 +873,6 @@ bin	9800	0
 bin	10000	0
 bin	10200	0
 bin	10400	0
-bin	10600	0
-bin	10800	0
-bin	11000	0
-bin	11200	0
-bin	11400	0
-bin	11600	0
-bin	11800	0
-bin	12000	1
-bin	12200	0
-bin	12400	0
-bin	12600	0
-bin	12800	0
-bin	13000	0
-bin	13200	0
-bin	13400	0
-bin	13600	0
-bin	13800	0
-bin	14000	0
-bin	14200	0
-bin	14400	0
-bin	14600	0
-bin	14800	0
-bin	15000	0
 statistic RSVPTE4.LSR1.ppp[0].queue flowQueueingTime:histogram
 field count 0
 field mean nan
@@ -938,25 +889,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR1.ppp[0].queue incomingPackets:count 5191
+scalar RSVPTE4.LSR1.ppp[0].queue incomingPackets:count 10376
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[0].queue incomingPacketLengths:sum 6363336
+scalar RSVPTE4.LSR1.ppp[0].queue incomingPacketLengths:sum 12832808
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[0].queue incomingPacketLengths:histogram
-field count 5191
-field mean 1225.840107879
-field stddev 286.58056038313
+field count 10376
+field mean 1236.7779491133
+field stddev 184.76979057175
 field min 168
-field max 12000
-field sum 6363336
-field sqrsum 8226678976
+field max 8224
+field sum 12832808
+field sqrsum 16225535168
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -966,19 +917,19 @@ bin	-inf	0
 bin	0	250
 bin	200	0
 bin	400	1
-bin	600	28
+bin	600	18
 bin	800	11
 bin	1000	0
-bin	1200	4894
-bin	1400	1
+bin	1200	10092
+bin	1400	0
 bin	1600	0
-bin	1800	3
+bin	1800	2
 bin	2000	0
 bin	2200	0
 bin	2400	0
 bin	2600	0
 bin	2800	0
-bin	3000	2
+bin	3000	1
 bin	3200	0
 bin	3400	0
 bin	3600	0
@@ -1004,7 +955,7 @@ bin	7400	0
 bin	7600	0
 bin	7800	0
 bin	8000	0
-bin	8200	0
+bin	8200	1
 bin	8400	0
 bin	8600	0
 bin	8800	0
@@ -1016,36 +967,13 @@ bin	9800	0
 bin	10000	0
 bin	10200	0
 bin	10400	0
-bin	10600	0
-bin	10800	0
-bin	11000	0
-bin	11200	0
-bin	11400	0
-bin	11600	0
-bin	11800	0
-bin	12000	1
-bin	12200	0
-bin	12400	0
-bin	12600	0
-bin	12800	0
-bin	13000	0
-bin	13200	0
-bin	13400	0
-bin	13600	0
-bin	13800	0
-bin	14000	0
-bin	14200	0
-bin	14400	0
-bin	14600	0
-bin	14800	0
-bin	15000	0
-scalar RSVPTE4.LSR1.ppp[0].queue droppedPacketsQueueOverflow:count 4
+scalar RSVPTE4.LSR1.ppp[0].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
 attr recordingmode count
 attr source packetDropReasonIsQueueOverflow(packetDropped)
 attr title "dropped packets: queue overflow, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[0].queue droppedPacketLengthsQueueOverflow:sum 2376
+scalar RSVPTE4.LSR1.ppp[0].queue droppedPacketLengthsQueueOverflow:sum 0
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
@@ -1061,32 +989,32 @@ par RSVPTE4.LSR1.ppp[0].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR1.ppp[0].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR1.ppp[0].ppp txPk:count 5187
+scalar RSVPTE4.LSR1.ppp[0].ppp txPk:count 10376
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR1.ppp[0].ppp txPk:sum(packetBytes) 831429
+scalar RSVPTE4.LSR1.ppp[0].ppp txPk:sum(packetBytes) 1676733
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[0].ppp rcvdPkFromHl:count 5187
+scalar RSVPTE4.LSR1.ppp[0].ppp rcvdPkFromHl:count 10376
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR1.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 795120
+scalar RSVPTE4.LSR1.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 1604101
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[0].ppp passedUpPk:count 291
+scalar RSVPTE4.LSR1.ppp[0].ppp passedUpPk:count 292
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR1.ppp[0].ppp passedUpPk:sum(packetBytes) 11114
+scalar RSVPTE4.LSR1.ppp[0].ppp passedUpPk:sum(packetBytes) 10703
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -1111,17 +1039,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[0].ppp rxPkOk:count 291
+scalar RSVPTE4.LSR1.ppp[0].ppp rxPkOk:count 292
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR1.ppp[0].ppp rxPkOk:sum(packetBytes) 13151
+scalar RSVPTE4.LSR1.ppp[0].ppp rxPkOk:sum(packetBytes) 12747
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[0].ppp transmissionState:timeavg 0.88683600003092
+scalar RSVPTE4.LSR1.ppp[0].ppp transmissionState:timeavg 0.44712879999623
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -1170,14 +1098,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, last"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[1].queue queueLength:max 3
+scalar RSVPTE4.LSR1.ppp[1].queue queueLength:max 2
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[1].queue queueLength:timeavg 0.2365185303248
+scalar RSVPTE4.LSR1.ppp[1].queue queueLength:timeavg 0.00042881866152
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -1191,14 +1119,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar RSVPTE4.LSR1.ppp[1].queue queueBitLength:max 3744
+scalar RSVPTE4.LSR1.ppp[1].queue queueBitLength:max 9376
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR1.ppp[1].queue queueBitLength:timeavg 289.49352354981
+scalar RSVPTE4.LSR1.ppp[1].queue queueBitLength:timeavg 1.0061250978267
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -1206,183 +1134,192 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[1].queue queueingTime:histogram
-field count 10356
-field mean 0.0011419396017999
-field stddev 0.0011414586377523
+field count 5173
+field mean 4.1447773199304e-06
+field stddev 0.00019683402663608
 field min 0
-field max 0.00463129296
-field sum 11.82592651624
-field sqrsum 0.026996311410567
+field max 0.0138
+field sum 0.021440933076
+field sqrsum 0.00020047094315718
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	5007
-bin	0.0001	0
+bin	0	5165
 bin	0.0002	1
-bin	0.0003	0
 bin	0.0004	0
-bin	0.0005	0
-bin	0.0006	0
-bin	0.0007	0
-bin	0.0008	0
-bin	0.0009	245
-bin	0.001	0
-bin	0.0011	0
-bin	0.0012	0
-bin	0.0013	0
+bin	0.0006	1
+bin	0.0008	2
+bin	0.001	1
+bin	0.0012	1
 bin	0.0014	0
-bin	0.0015	0
 bin	0.0016	0
-bin	0.0017	0
 bin	0.0018	0
-bin	0.0019	0
-bin	0.002	0
-bin	0.0021	99
-bin	0.0022	4894
-bin	0.0023	0
-bin	0.0024	1
-bin	0.0025	0
+bin	0.002	1
+bin	0.0022	0
+bin	0.0024	0
 bin	0.0026	0
-bin	0.0027	0
 bin	0.0028	0
-bin	0.0029	0
 bin	0.003	0
-bin	0.0031	5
 bin	0.0032	0
-bin	0.0033	0
 bin	0.0034	0
-bin	0.0035	0
 bin	0.0036	0
-bin	0.0037	0
 bin	0.0038	0
-bin	0.0039	0
 bin	0.004	0
-bin	0.0041	0
 bin	0.0042	0
-bin	0.0043	100
-bin	0.0044	3
-bin	0.0045	0
-bin	0.0046	1
-bin	0.0047	0
+bin	0.0044	0
+bin	0.0046	0
 bin	0.0048	0
-bin	0.0049	0
 bin	0.005	0
-bin	0.0051	0
 bin	0.0052	0
-bin	0.0053	0
 bin	0.0054	0
-bin	0.0055	0
 bin	0.0056	0
-scalar RSVPTE4.LSR1.ppp[1].queue outgoingPackets:count 10356
+bin	0.0058	0
+bin	0.006	0
+bin	0.0062	0
+bin	0.0064	0
+bin	0.0066	0
+bin	0.0068	0
+bin	0.007	0
+bin	0.0072	0
+bin	0.0074	0
+bin	0.0076	0
+bin	0.0078	0
+bin	0.008	0
+bin	0.0082	0
+bin	0.0084	0
+bin	0.0086	0
+bin	0.0088	0
+bin	0.009	0
+bin	0.0092	0
+bin	0.0094	0
+bin	0.0096	0
+bin	0.0098	0
+bin	0.01	0
+bin	0.0102	0
+bin	0.0104	0
+bin	0.0106	0
+bin	0.0108	0
+bin	0.011	0
+bin	0.0112	0
+bin	0.0114	0
+bin	0.0116	0
+bin	0.0118	0
+bin	0.012	0
+bin	0.0122	0
+bin	0.0124	0
+bin	0.0126	0
+bin	0.0128	0
+bin	0.013	0
+bin	0.0132	0
+bin	0.0134	0
+bin	0.0136	1
+bin	0.0138	0
+bin	0.014	0
+bin	0.0142	0
+bin	0.0144	0
+bin	0.0146	0
+bin	0.0148	0
+bin	0.015	0
+bin	0.0152	0
+bin	0.0154	0
+bin	0.0156	0
+bin	0.0158	0
+bin	0.016	0
+bin	0.0162	0
+bin	0.0164	0
+bin	0.0166	0
+bin	0.0168	0
+bin	0.017	0
+bin	0.0172	0
+bin	0.0174	0
+scalar RSVPTE4.LSR1.ppp[1].queue outgoingPackets:count 5173
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[1].queue outgoingPacketLengths:sum 12813008
+scalar RSVPTE4.LSR1.ppp[1].queue outgoingPacketLengths:sum 6344880
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[1].queue outgoingPacketLengths:histogram
-field count 10356
-field mean 1237.2545384318
-field stddev 177.98878675956
+field count 5173
+field mean 1226.5377923835
+field stddev 268.05589645383
 field min 168
-field max 6496
-field sum 12813008
-field sqrsum 16180998784
+field max 9376
+field sum 6344880
+field sqrsum 8153863808
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
-bin	0	0
-bin	100	250
+bin	0	250
 bin	200	0
-bin	300	0
 bin	400	0
-bin	500	0
-bin	600	0
-bin	700	4
-bin	800	0
-bin	900	10
+bin	600	14
+bin	800	10
 bin	1000	0
-bin	1100	0
-bin	1200	10090
-bin	1300	0
+bin	1200	4895
 bin	1400	0
-bin	1500	0
 bin	1600	0
-bin	1700	0
-bin	1800	0
-bin	1900	0
+bin	1800	1
 bin	2000	0
-bin	2100	0
 bin	2200	0
-bin	2300	0
 bin	2400	0
-bin	2500	0
 bin	2600	0
-bin	2700	0
 bin	2800	0
-bin	2900	0
-bin	3000	1
-bin	3100	0
+bin	3000	2
 bin	3200	0
-bin	3300	0
 bin	3400	0
-bin	3500	0
 bin	3600	0
-bin	3700	0
 bin	3800	0
-bin	3900	0
 bin	4000	0
-bin	4100	0
 bin	4200	0
-bin	4300	0
 bin	4400	0
-bin	4500	0
 bin	4600	0
-bin	4700	0
 bin	4800	0
-bin	4900	0
 bin	5000	0
-bin	5100	0
 bin	5200	0
-bin	5300	0
 bin	5400	0
-bin	5500	0
 bin	5600	0
-bin	5700	0
 bin	5800	0
-bin	5900	0
 bin	6000	0
-bin	6100	0
 bin	6200	0
-bin	6300	0
-bin	6400	1
-bin	6500	0
+bin	6400	0
 bin	6600	0
-bin	6700	0
 bin	6800	0
-bin	6900	0
 bin	7000	0
-bin	7100	0
 bin	7200	0
-bin	7300	0
 bin	7400	0
-bin	7500	0
 bin	7600	0
-bin	7700	0
 bin	7800	0
-bin	7900	0
 bin	8000	0
-bin	8100	0
+bin	8200	0
+bin	8400	0
+bin	8600	0
+bin	8800	0
+bin	9000	0
+bin	9200	1
+bin	9400	0
+bin	9600	0
+bin	9800	0
+bin	10000	0
+bin	10200	0
+bin	10400	0
+bin	10600	0
+bin	10800	0
+bin	11000	0
+bin	11200	0
+bin	11400	0
+bin	11600	0
+bin	11800	0
 statistic RSVPTE4.LSR1.ppp[1].queue flowQueueingTime:histogram
 field count 0
 field mean nan
@@ -1399,113 +1336,91 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR1.ppp[1].queue incomingPackets:count 10356
+scalar RSVPTE4.LSR1.ppp[1].queue incomingPackets:count 5173
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[1].queue incomingPacketLengths:sum 12813008
+scalar RSVPTE4.LSR1.ppp[1].queue incomingPacketLengths:sum 6344880
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[1].queue incomingPacketLengths:histogram
-field count 10356
-field mean 1237.2545384318
-field stddev 177.98878675956
+field count 5173
+field mean 1226.5377923835
+field stddev 268.05589645383
 field min 168
-field max 6496
-field sum 12813008
-field sqrsum 16180998784
+field max 9376
+field sum 6344880
+field sqrsum 8153863808
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
-bin	0	0
-bin	100	250
+bin	0	250
 bin	200	0
-bin	300	0
 bin	400	0
-bin	500	0
-bin	600	0
-bin	700	4
-bin	800	0
-bin	900	10
+bin	600	14
+bin	800	10
 bin	1000	0
-bin	1100	0
-bin	1200	10090
-bin	1300	0
+bin	1200	4895
 bin	1400	0
-bin	1500	0
 bin	1600	0
-bin	1700	0
-bin	1800	0
-bin	1900	0
+bin	1800	1
 bin	2000	0
-bin	2100	0
 bin	2200	0
-bin	2300	0
 bin	2400	0
-bin	2500	0
 bin	2600	0
-bin	2700	0
 bin	2800	0
-bin	2900	0
-bin	3000	1
-bin	3100	0
+bin	3000	2
 bin	3200	0
-bin	3300	0
 bin	3400	0
-bin	3500	0
 bin	3600	0
-bin	3700	0
 bin	3800	0
-bin	3900	0
 bin	4000	0
-bin	4100	0
 bin	4200	0
-bin	4300	0
 bin	4400	0
-bin	4500	0
 bin	4600	0
-bin	4700	0
 bin	4800	0
-bin	4900	0
 bin	5000	0
-bin	5100	0
 bin	5200	0
-bin	5300	0
 bin	5400	0
-bin	5500	0
 bin	5600	0
-bin	5700	0
 bin	5800	0
-bin	5900	0
 bin	6000	0
-bin	6100	0
 bin	6200	0
-bin	6300	0
-bin	6400	1
-bin	6500	0
+bin	6400	0
 bin	6600	0
-bin	6700	0
 bin	6800	0
-bin	6900	0
 bin	7000	0
-bin	7100	0
 bin	7200	0
-bin	7300	0
 bin	7400	0
-bin	7500	0
 bin	7600	0
-bin	7700	0
 bin	7800	0
-bin	7900	0
 bin	8000	0
-bin	8100	0
+bin	8200	0
+bin	8400	0
+bin	8600	0
+bin	8800	0
+bin	9000	0
+bin	9200	1
+bin	9400	0
+bin	9600	0
+bin	9800	0
+bin	10000	0
+bin	10200	0
+bin	10400	0
+bin	10600	0
+bin	10800	0
+bin	11000	0
+bin	11200	0
+bin	11400	0
+bin	11600	0
+bin	11800	0
 scalar RSVPTE4.LSR1.ppp[1].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
 attr recordingmode count
@@ -1528,22 +1443,22 @@ par RSVPTE4.LSR1.ppp[1].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR1.ppp[1].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR1.ppp[1].ppp txPk:count 10356
+scalar RSVPTE4.LSR1.ppp[1].ppp txPk:count 5173
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR1.ppp[1].ppp txPk:sum(packetBytes) 1674118
+scalar RSVPTE4.LSR1.ppp[1].ppp txPk:sum(packetBytes) 829321
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[1].ppp rcvdPkFromHl:count 10356
+scalar RSVPTE4.LSR1.ppp[1].ppp rcvdPkFromHl:count 5173
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR1.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 1601626
+scalar RSVPTE4.LSR1.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 793110
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -1588,7 +1503,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[1].ppp transmissionState:timeavg 0.44643146666289
+scalar RSVPTE4.LSR1.ppp[1].ppp transmissionState:timeavg 0.22115226669755
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -1673,7 +1588,7 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[2].queue queueingTime:histogram
-field count 4
+field count 3
 field mean 0
 field stddev 0
 field min 0
@@ -1711,7 +1626,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	4
+bin	0	3
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -1737,25 +1652,25 @@ bin	0.44	0
 bin	0.46	0
 bin	0.48	0
 bin	0.5	0
-scalar RSVPTE4.LSR1.ppp[2].queue outgoingPackets:count 4
+scalar RSVPTE4.LSR1.ppp[2].queue outgoingPackets:count 3
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[2].queue outgoingPacketLengths:sum 1792
+scalar RSVPTE4.LSR1.ppp[2].queue outgoingPacketLengths:sum 1344
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[2].queue outgoingPacketLengths:histogram
-field count 4
+field count 3
 field mean 448
 field stddev 0
 field min 448
 field max 448
-field sum 1792
-field sqrsum 802816
+field sum 1344
+field sqrsum 602112
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -1763,7 +1678,7 @@ attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
 bin	447	0
-bin	448	4
+bin	448	3
 bin	449	0
 statistic RSVPTE4.LSR1.ppp[2].queue flowQueueingTime:histogram
 field count 0
@@ -1781,25 +1696,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR1.ppp[2].queue incomingPackets:count 4
+scalar RSVPTE4.LSR1.ppp[2].queue incomingPackets:count 3
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[2].queue incomingPacketLengths:sum 1792
+scalar RSVPTE4.LSR1.ppp[2].queue incomingPacketLengths:sum 1344
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[2].queue incomingPacketLengths:histogram
-field count 4
+field count 3
 field mean 448
 field stddev 0
 field min 448
 field max 448
-field sum 1792
-field sqrsum 802816
+field sum 1344
+field sqrsum 602112
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -1807,7 +1722,7 @@ attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
 bin	447	0
-bin	448	4
+bin	448	3
 bin	449	0
 scalar RSVPTE4.LSR1.ppp[2].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
@@ -1831,22 +1746,22 @@ par RSVPTE4.LSR1.ppp[2].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR1.ppp[2].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR1.ppp[2].ppp txPk:count 4
+scalar RSVPTE4.LSR1.ppp[2].ppp txPk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR1.ppp[2].ppp txPk:sum(packetBytes) 252
+scalar RSVPTE4.LSR1.ppp[2].ppp txPk:sum(packetBytes) 189
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[2].ppp rcvdPkFromHl:count 4
+scalar RSVPTE4.LSR1.ppp[2].ppp rcvdPkFromHl:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR1.ppp[2].ppp rcvdPkFromHl:sum(packetBytes) 224
+scalar RSVPTE4.LSR1.ppp[2].ppp rcvdPkFromHl:sum(packetBytes) 168
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -1891,7 +1806,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[2].ppp transmissionState:timeavg 6.72e-05
+scalar RSVPTE4.LSR1.ppp[2].ppp transmissionState:timeavg 5.04e-05
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -1976,7 +1891,7 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[3].queue queueingTime:histogram
-field count 4
+field count 3
 field mean 0
 field stddev 0
 field min 0
@@ -2014,7 +1929,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	4
+bin	0	3
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2040,25 +1955,25 @@ bin	0.44	0
 bin	0.46	0
 bin	0.48	0
 bin	0.5	0
-scalar RSVPTE4.LSR1.ppp[3].queue outgoingPackets:count 4
+scalar RSVPTE4.LSR1.ppp[3].queue outgoingPackets:count 3
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[3].queue outgoingPacketLengths:sum 1792
+scalar RSVPTE4.LSR1.ppp[3].queue outgoingPacketLengths:sum 1344
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[3].queue outgoingPacketLengths:histogram
-field count 4
+field count 3
 field mean 448
 field stddev 0
 field min 448
 field max 448
-field sum 1792
-field sqrsum 802816
+field sum 1344
+field sqrsum 602112
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -2066,7 +1981,7 @@ attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
 bin	447	0
-bin	448	4
+bin	448	3
 bin	449	0
 statistic RSVPTE4.LSR1.ppp[3].queue flowQueueingTime:histogram
 field count 0
@@ -2084,25 +1999,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR1.ppp[3].queue incomingPackets:count 4
+scalar RSVPTE4.LSR1.ppp[3].queue incomingPackets:count 3
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[3].queue incomingPacketLengths:sum 1792
+scalar RSVPTE4.LSR1.ppp[3].queue incomingPacketLengths:sum 1344
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[3].queue incomingPacketLengths:histogram
-field count 4
+field count 3
 field mean 448
 field stddev 0
 field min 448
 field max 448
-field sum 1792
-field sqrsum 802816
+field sum 1344
+field sqrsum 602112
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -2110,7 +2025,7 @@ attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
 bin	447	0
-bin	448	4
+bin	448	3
 bin	449	0
 scalar RSVPTE4.LSR1.ppp[3].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
@@ -2134,22 +2049,22 @@ par RSVPTE4.LSR1.ppp[3].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR1.ppp[3].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR1.ppp[3].ppp txPk:count 4
+scalar RSVPTE4.LSR1.ppp[3].ppp txPk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR1.ppp[3].ppp txPk:sum(packetBytes) 252
+scalar RSVPTE4.LSR1.ppp[3].ppp txPk:sum(packetBytes) 189
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[3].ppp rcvdPkFromHl:count 4
+scalar RSVPTE4.LSR1.ppp[3].ppp rcvdPkFromHl:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR1.ppp[3].ppp rcvdPkFromHl:sum(packetBytes) 224
+scalar RSVPTE4.LSR1.ppp[3].ppp rcvdPkFromHl:sum(packetBytes) 168
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -2194,7 +2109,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[3].ppp transmissionState:timeavg 6.72e-05
+scalar RSVPTE4.LSR1.ppp[3].ppp transmissionState:timeavg 5.04e-05
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -2279,7 +2194,7 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[4].queue queueingTime:histogram
-field count 4
+field count 3
 field mean 0
 field stddev 0
 field min 0
@@ -2317,7 +2232,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	4
+bin	0	3
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2343,25 +2258,25 @@ bin	0.44	0
 bin	0.46	0
 bin	0.48	0
 bin	0.5	0
-scalar RSVPTE4.LSR1.ppp[4].queue outgoingPackets:count 4
+scalar RSVPTE4.LSR1.ppp[4].queue outgoingPackets:count 3
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[4].queue outgoingPacketLengths:sum 1792
+scalar RSVPTE4.LSR1.ppp[4].queue outgoingPacketLengths:sum 1344
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[4].queue outgoingPacketLengths:histogram
-field count 4
+field count 3
 field mean 448
 field stddev 0
 field min 448
 field max 448
-field sum 1792
-field sqrsum 802816
+field sum 1344
+field sqrsum 602112
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -2369,7 +2284,7 @@ attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
 bin	447	0
-bin	448	4
+bin	448	3
 bin	449	0
 statistic RSVPTE4.LSR1.ppp[4].queue flowQueueingTime:histogram
 field count 0
@@ -2387,25 +2302,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR1.ppp[4].queue incomingPackets:count 4
+scalar RSVPTE4.LSR1.ppp[4].queue incomingPackets:count 3
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR1.ppp[4].queue incomingPacketLengths:sum 1792
+scalar RSVPTE4.LSR1.ppp[4].queue incomingPacketLengths:sum 1344
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR1.ppp[4].queue incomingPacketLengths:histogram
-field count 4
+field count 3
 field mean 448
 field stddev 0
 field min 448
 field max 448
-field sum 1792
-field sqrsum 802816
+field sum 1344
+field sqrsum 602112
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -2413,7 +2328,7 @@ attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
 bin	447	0
-bin	448	4
+bin	448	3
 bin	449	0
 scalar RSVPTE4.LSR1.ppp[4].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
@@ -2437,22 +2352,22 @@ par RSVPTE4.LSR1.ppp[4].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR1.ppp[4].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR1.ppp[4].ppp txPk:count 4
+scalar RSVPTE4.LSR1.ppp[4].ppp txPk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR1.ppp[4].ppp txPk:sum(packetBytes) 252
+scalar RSVPTE4.LSR1.ppp[4].ppp txPk:sum(packetBytes) 189
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[4].ppp rcvdPkFromHl:count 4
+scalar RSVPTE4.LSR1.ppp[4].ppp rcvdPkFromHl:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR1.ppp[4].ppp rcvdPkFromHl:sum(packetBytes) 224
+scalar RSVPTE4.LSR1.ppp[4].ppp rcvdPkFromHl:sum(packetBytes) 168
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -2497,7 +2412,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR1.ppp[4].ppp transmissionState:timeavg 6.72e-05
+scalar RSVPTE4.LSR1.ppp[4].ppp transmissionState:timeavg 5.04e-05
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -2823,14 +2738,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, last"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[0].queue queueLength:max 10
+scalar RSVPTE4.LSR2.ppp[0].queue queueLength:max 3
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[0].queue queueLength:timeavg 0.0316205614804
+scalar RSVPTE4.LSR2.ppp[0].queue queueLength:timeavg 0.00091898329924
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -2844,14 +2759,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar RSVPTE4.LSR2.ppp[0].queue queueBitLength:max 21696
+scalar RSVPTE4.LSR2.ppp[0].queue queueBitLength:max 10528
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR2.ppp[0].queue queueBitLength:timeavg 45.539430694736
+scalar RSVPTE4.LSR2.ppp[0].queue queueBitLength:timeavg 2.1553567336106
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -2859,144 +2774,93 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR2.ppp[0].queue queueingTime:histogram
-field count 292
-field mean 0.0054144797055479
-field stddev 0.023087533143275
+field count 293
+field mean 0.00015682308860751
+field stddev 0.0011772798023564
 field min 0
-field max 0.150665869924
-field sum 1.58102807402
-field sqrsum 0.16367339273346
+field max 0.017344760484
+field sum 0.045949164962
+field sqrsum 0.00041191430801491
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	268
-bin	0.002	0
-bin	0.004	2
-bin	0.006	2
-bin	0.008	1
-bin	0.01	2
+bin	0	281
+bin	0.0005	3
+bin	0.001	1
+bin	0.0015	0
+bin	0.002	4
+bin	0.0025	0
+bin	0.003	0
+bin	0.0035	0
+bin	0.004	1
+bin	0.0045	0
+bin	0.005	0
+bin	0.0055	1
+bin	0.006	1
+bin	0.0065	0
+bin	0.007	0
+bin	0.0075	0
+bin	0.008	0
+bin	0.0085	0
+bin	0.009	0
+bin	0.0095	0
+bin	0.01	0
+bin	0.0105	0
+bin	0.011	0
+bin	0.0115	0
 bin	0.012	0
+bin	0.0125	0
+bin	0.013	0
+bin	0.0135	0
 bin	0.014	0
+bin	0.0145	0
+bin	0.015	0
+bin	0.0155	0
 bin	0.016	0
+bin	0.0165	0
+bin	0.017	1
+bin	0.0175	0
 bin	0.018	0
+bin	0.0185	0
+bin	0.019	0
+bin	0.0195	0
 bin	0.02	0
+bin	0.0205	0
+bin	0.021	0
+bin	0.0215	0
 bin	0.022	0
-bin	0.024	0
-bin	0.026	0
-bin	0.028	0
-bin	0.03	1
-bin	0.032	1
-bin	0.034	0
-bin	0.036	0
-bin	0.038	1
-bin	0.04	1
-bin	0.042	0
-bin	0.044	0
-bin	0.046	1
-bin	0.048	0
-bin	0.05	0
-bin	0.052	1
-bin	0.054	0
-bin	0.056	0
-bin	0.058	0
-bin	0.06	0
-bin	0.062	0
-bin	0.064	0
-bin	0.066	0
-bin	0.068	0
-bin	0.07	1
-bin	0.072	0
-bin	0.074	0
-bin	0.076	0
-bin	0.078	0
-bin	0.08	0
-bin	0.082	0
-bin	0.084	0
-bin	0.086	0
-bin	0.088	0
-bin	0.09	0
-bin	0.092	0
-bin	0.094	0
-bin	0.096	0
-bin	0.098	0
-bin	0.1	1
-bin	0.102	0
-bin	0.104	1
-bin	0.106	1
-bin	0.108	1
-bin	0.11	0
-bin	0.112	0
-bin	0.114	0
-bin	0.116	0
-bin	0.118	0
-bin	0.12	1
-bin	0.122	2
-bin	0.124	0
-bin	0.126	1
-bin	0.128	0
-bin	0.13	0
-bin	0.132	0
-bin	0.134	0
-bin	0.136	1
-bin	0.138	0
-bin	0.14	0
-bin	0.142	0
-bin	0.144	0
-bin	0.146	0
-bin	0.148	0
-bin	0.15	1
-bin	0.152	0
-bin	0.154	0
-bin	0.156	0
-bin	0.158	0
-bin	0.16	0
-bin	0.162	0
-bin	0.164	0
-bin	0.166	0
-bin	0.168	0
-bin	0.17	0
-bin	0.172	0
-bin	0.174	0
-bin	0.176	0
-bin	0.178	0
-bin	0.18	0
-bin	0.182	0
-bin	0.184	0
-bin	0.186	0
-bin	0.188	0
-bin	0.19	0
-scalar RSVPTE4.LSR2.ppp[0].queue outgoingPackets:count 292
+scalar RSVPTE4.LSR2.ppp[0].queue outgoingPackets:count 293
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[0].queue outgoingPacketLengths:sum 89080
+scalar RSVPTE4.LSR2.ppp[0].queue outgoingPacketLengths:sum 85792
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR2.ppp[0].queue outgoingPacketLengths:histogram
-field count 292
-field mean 305.06849315068
-field stddev 783.45107244896
+field count 293
+field mean 292.80546075085
+field stddev 690.45695091437
 field min 168
-field max 12000
-field sum 89080
-field sqrsum 205790016
+field max 10528
+field sum 85792
+field sqrsum 164325760
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
-bin	0	250
+bin	0	251
 bin	200	11
-bin	400	1
-bin	600	22
+bin	400	0
+bin	600	24
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -3008,7 +2872,7 @@ bin	2200	0
 bin	2400	0
 bin	2600	0
 bin	2800	0
-bin	3000	2
+bin	3000	1
 bin	3200	0
 bin	3400	0
 bin	3600	1
@@ -3045,7 +2909,7 @@ bin	9600	0
 bin	9800	0
 bin	10000	0
 bin	10200	0
-bin	10400	0
+bin	10400	1
 bin	10600	0
 bin	10800	0
 bin	11000	0
@@ -3053,22 +2917,13 @@ bin	11200	0
 bin	11400	0
 bin	11600	0
 bin	11800	0
-bin	12000	1
+bin	12000	0
 bin	12200	0
 bin	12400	0
 bin	12600	0
 bin	12800	0
 bin	13000	0
 bin	13200	0
-bin	13400	0
-bin	13600	0
-bin	13800	0
-bin	14000	0
-bin	14200	0
-bin	14400	0
-bin	14600	0
-bin	14800	0
-bin	15000	0
 statistic RSVPTE4.LSR2.ppp[0].queue flowQueueingTime:histogram
 field count 0
 field mean nan
@@ -3085,25 +2940,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR2.ppp[0].queue incomingPackets:count 299
+scalar RSVPTE4.LSR2.ppp[0].queue incomingPackets:count 293
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[0].queue incomingPacketLengths:sum 93664
+scalar RSVPTE4.LSR2.ppp[0].queue incomingPacketLengths:sum 85792
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR2.ppp[0].queue incomingPacketLengths:histogram
-field count 299
-field mean 313.25752508361
-field stddev 776.60304694141
+field count 293
+field mean 292.80546075085
+field stddev 690.45695091437
 field min 168
-field max 12000
-field sum 93664
-field sqrsum 209068416
+field max 10528
+field sum 85792
+field sqrsum 164325760
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -3112,8 +2967,8 @@ attr unit b
 bin	-inf	0
 bin	0	251
 bin	200	11
-bin	400	1
-bin	600	28
+bin	400	0
+bin	600	24
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -3125,7 +2980,7 @@ bin	2200	0
 bin	2400	0
 bin	2600	0
 bin	2800	0
-bin	3000	2
+bin	3000	1
 bin	3200	0
 bin	3400	0
 bin	3600	1
@@ -3162,7 +3017,7 @@ bin	9600	0
 bin	9800	0
 bin	10000	0
 bin	10200	0
-bin	10400	0
+bin	10400	1
 bin	10600	0
 bin	10800	0
 bin	11000	0
@@ -3170,29 +3025,20 @@ bin	11200	0
 bin	11400	0
 bin	11600	0
 bin	11800	0
-bin	12000	1
+bin	12000	0
 bin	12200	0
 bin	12400	0
 bin	12600	0
 bin	12800	0
 bin	13000	0
 bin	13200	0
-bin	13400	0
-bin	13600	0
-bin	13800	0
-bin	14000	0
-bin	14200	0
-bin	14400	0
-bin	14600	0
-bin	14800	0
-bin	15000	0
-scalar RSVPTE4.LSR2.ppp[0].queue droppedPacketsQueueOverflow:count 7
+scalar RSVPTE4.LSR2.ppp[0].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
 attr recordingmode count
 attr source packetDropReasonIsQueueOverflow(packetDropped)
 attr title "dropped packets: queue overflow, count"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[0].queue droppedPacketLengthsQueueOverflow:sum 4584
+scalar RSVPTE4.LSR2.ppp[0].queue droppedPacketLengthsQueueOverflow:sum 0
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
@@ -3208,32 +3054,32 @@ par RSVPTE4.LSR2.ppp[0].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR2.ppp[0].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR2.ppp[0].ppp txPk:count 292
+scalar RSVPTE4.LSR2.ppp[0].ppp txPk:count 293
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR2.ppp[0].ppp txPk:sum(packetBytes) 13179
+scalar RSVPTE4.LSR2.ppp[0].ppp txPk:sum(packetBytes) 12775
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[0].ppp rcvdPkFromHl:count 292
+scalar RSVPTE4.LSR2.ppp[0].ppp rcvdPkFromHl:count 293
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR2.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 11135
+scalar RSVPTE4.LSR2.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 10724
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[0].ppp passedUpPk:count 5185
+scalar RSVPTE4.LSR2.ppp[0].ppp passedUpPk:count 10373
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR2.ppp[0].ppp passedUpPk:sum(packetBytes) 794800
+scalar RSVPTE4.LSR2.ppp[0].ppp passedUpPk:sum(packetBytes) 1603629
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -3258,17 +3104,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[0].ppp rxPkOk:count 5185
+scalar RSVPTE4.LSR2.ppp[0].ppp rxPkOk:count 10373
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR2.ppp[0].ppp rxPkOk:sum(packetBytes) 831095
+scalar RSVPTE4.LSR2.ppp[0].ppp rxPkOk:sum(packetBytes) 1676240
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[0].ppp transmissionState:timeavg 0.01405759999826
+scalar RSVPTE4.LSR2.ppp[0].ppp transmissionState:timeavg 0.00340666666492
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -3317,14 +3163,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, last"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[1].queue queueLength:max 2
+scalar RSVPTE4.LSR2.ppp[1].queue queueLength:max 3
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[1].queue queueLength:timeavg 0.00020610782008
+scalar RSVPTE4.LSR2.ppp[1].queue queueLength:timeavg 0.013591777705421
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -3345,7 +3191,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR2.ppp[1].queue queueBitLength:timeavg 0.24767249683456
+scalar RSVPTE4.LSR2.ppp[1].queue queueBitLength:timeavg 10.601179864547
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -3353,54 +3199,54 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR2.ppp[1].queue queueingTime:histogram
-field count 5164
-field mean 1.9956218055771e-06
-field stddev 9.5146102311956e-05
+field count 10367
+field mean 6.5553090119709e-05
+field stddev 0.00020912865365065
 field min 0
 field max 0.006556818154
-field sum 0.010305391004
-field sqrsum 4.676007285677e-05
+field sum 0.67958888527103
+field sqrsum 0.00049790402374051
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	5159
+bin	0	9846
 bin	0.0001	0
 bin	0.0002	0
-bin	0.0003	0
-bin	0.0004	0
+bin	0.0003	8
+bin	0.0004	245
 bin	0.0005	0
-bin	0.0006	1
+bin	0.0006	2
 bin	0.0007	0
 bin	0.0008	1
-bin	0.0009	1
-bin	0.001	0
-bin	0.0011	0
+bin	0.0009	0
+bin	0.001	6
+bin	0.0011	245
 bin	0.0012	0
-bin	0.0013	1
+bin	0.0013	2
 bin	0.0014	0
-bin	0.0015	0
-bin	0.0016	0
-bin	0.0017	0
+bin	0.0015	1
+bin	0.0016	2
+bin	0.0017	1
 bin	0.0018	0
 bin	0.0019	0
-bin	0.002	0
+bin	0.002	1
 bin	0.0021	0
 bin	0.0022	0
-bin	0.0023	0
-bin	0.0024	0
+bin	0.0023	1
+bin	0.0024	3
 bin	0.0025	0
 bin	0.0026	0
 bin	0.0027	0
 bin	0.0028	0
 bin	0.0029	0
 bin	0.003	0
-bin	0.0031	0
+bin	0.0031	1
 bin	0.0032	0
 bin	0.0033	0
-bin	0.0034	0
+bin	0.0034	1
 bin	0.0035	0
 bin	0.0036	0
 bin	0.0037	0
@@ -3449,25 +3295,25 @@ bin	0.0079	0
 bin	0.008	0
 bin	0.0081	0
 bin	0.0082	0
-scalar RSVPTE4.LSR2.ppp[1].queue outgoingPackets:count 5164
+scalar RSVPTE4.LSR2.ppp[1].queue outgoingPackets:count 10367
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[1].queue outgoingPacketLengths:sum 6327616
+scalar RSVPTE4.LSR2.ppp[1].queue outgoingPacketLengths:sum 12820800
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR2.ppp[1].queue outgoingPacketLengths:histogram
-field count 5164
-field mean 1225.3323005422
-field stddev 244.59063095779
+field count 10367
+field mean 1236.6933539114
+field stddev 174.1729643485
 field min 168
 field max 3616
-field sum 6327616
-field sqrsum 8062306560
+field sum 12820800
+field sqrsum 16169863424
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -3488,7 +3334,7 @@ bin	500	0
 bin	550	0
 bin	600	0
 bin	650	0
-bin	700	10
+bin	700	14
 bin	750	0
 bin	800	0
 bin	850	0
@@ -3498,8 +3344,8 @@ bin	1000	0
 bin	1050	0
 bin	1100	0
 bin	1150	0
-bin	1200	0
-bin	1250	4890
+bin	1200	5195
+bin	1250	4893
 bin	1300	2
 bin	1350	0
 bin	1400	0
@@ -3534,7 +3380,7 @@ bin	2800	0
 bin	2850	0
 bin	2900	0
 bin	2950	0
-bin	3000	0
+bin	3000	1
 bin	3050	0
 bin	3100	0
 bin	3150	0
@@ -3581,25 +3427,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR2.ppp[1].queue incomingPackets:count 5164
+scalar RSVPTE4.LSR2.ppp[1].queue incomingPackets:count 10367
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[1].queue incomingPacketLengths:sum 6327616
+scalar RSVPTE4.LSR2.ppp[1].queue incomingPacketLengths:sum 12820800
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR2.ppp[1].queue incomingPacketLengths:histogram
-field count 5164
-field mean 1225.3323005422
-field stddev 244.59063095779
+field count 10367
+field mean 1236.6933539114
+field stddev 174.1729643485
 field min 168
 field max 3616
-field sum 6327616
-field sqrsum 8062306560
+field sum 12820800
+field sqrsum 16169863424
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -3620,7 +3466,7 @@ bin	500	0
 bin	550	0
 bin	600	0
 bin	650	0
-bin	700	10
+bin	700	14
 bin	750	0
 bin	800	0
 bin	850	0
@@ -3630,8 +3476,8 @@ bin	1000	0
 bin	1050	0
 bin	1100	0
 bin	1150	0
-bin	1200	0
-bin	1250	4890
+bin	1200	5195
+bin	1250	4893
 bin	1300	2
 bin	1350	0
 bin	1400	0
@@ -3666,7 +3512,7 @@ bin	2800	0
 bin	2850	0
 bin	2900	0
 bin	2950	0
-bin	3000	0
+bin	3000	1
 bin	3050	0
 bin	3100	0
 bin	3150	0
@@ -3719,32 +3565,32 @@ par RSVPTE4.LSR2.ppp[1].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR2.ppp[1].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR2.ppp[1].ppp txPk:count 5164
+scalar RSVPTE4.LSR2.ppp[1].ppp txPk:count 10367
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR2.ppp[1].ppp txPk:sum(packetBytes) 827100
+scalar RSVPTE4.LSR2.ppp[1].ppp txPk:sum(packetBytes) 1675169
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[1].ppp rcvdPkFromHl:count 5164
+scalar RSVPTE4.LSR2.ppp[1].ppp rcvdPkFromHl:count 10367
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR2.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 790952
+scalar RSVPTE4.LSR2.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 1602600
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[1].ppp passedUpPk:count 286
+scalar RSVPTE4.LSR2.ppp[1].ppp passedUpPk:count 289
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR2.ppp[1].ppp passedUpPk:sum(packetBytes) 10288
+scalar RSVPTE4.LSR2.ppp[1].ppp passedUpPk:sum(packetBytes) 10564
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -3769,17 +3615,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[1].ppp rxPkOk:count 286
+scalar RSVPTE4.LSR2.ppp[1].ppp rxPkOk:count 289
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR2.ppp[1].ppp rxPkOk:sum(packetBytes) 12290
+scalar RSVPTE4.LSR2.ppp[1].ppp rxPkOk:sum(packetBytes) 12587
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[1].ppp transmissionState:timeavg 0.22056000003099
+scalar RSVPTE4.LSR2.ppp[1].ppp transmissionState:timeavg 0.44667919999635
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -3828,14 +3674,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, last"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[2].queue queueLength:max 2
+scalar RSVPTE4.LSR2.ppp[2].queue queueLength:max 3
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR2.ppp[2].queue queueLength:timeavg 0.00051180309394
+scalar RSVPTE4.LSR2.ppp[2].queue queueLength:timeavg 0.00084778329922
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -3849,14 +3695,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar RSVPTE4.LSR2.ppp[2].queue queueBitLength:max 7808
+scalar RSVPTE4.LSR2.ppp[2].queue queueBitLength:max 7968
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR2.ppp[2].queue queueBitLength:timeavg 1.5394957119597
+scalar RSVPTE4.LSR2.ppp[2].queue queueBitLength:timeavg 2.345500505776
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -3865,23 +3711,23 @@ attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR2.ppp[2].queue queueingTime:histogram
 field count 282
-field mean 9.0745229421986e-05
-field stddev 0.00085434601284408
+field mean 0.00015031618780496
+field stddev 0.0011656192430418
 field min 0
 field max 0.01185219543
-field sum 0.025590154697
-field sqrsum 0.00020742608227411
+field sum 0.042389164961
+field sqrsum 0.00038815754743072
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	275
-bin	0.0002	2
+bin	0	273
+bin	0.0002	0
 bin	0.0004	0
-bin	0.0006	0
-bin	0.0008	2
+bin	0.0006	2
+bin	0.0008	3
 bin	0.001	0
 bin	0.0012	0
 bin	0.0014	0
@@ -3904,7 +3750,7 @@ bin	0.0046	0
 bin	0.0048	0
 bin	0.005	0
 bin	0.0052	0
-bin	0.0054	1
+bin	0.0054	0
 bin	0.0056	0
 bin	0.0058	1
 bin	0.006	0
@@ -3925,12 +3771,12 @@ bin	0.0088	0
 bin	0.009	0
 bin	0.0092	0
 bin	0.0094	0
-bin	0.0096	0
+bin	0.0096	1
 bin	0.0098	0
 bin	0.01	0
 bin	0.0102	0
 bin	0.0104	0
-bin	0.0106	0
+bin	0.0106	1
 bin	0.0108	0
 bin	0.011	0
 bin	0.0112	0
@@ -4183,12 +4029,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[2].ppp passedUpPk:count 268
+scalar RSVPTE4.LSR2.ppp[2].ppp passedUpPk:count 266
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR2.ppp[2].ppp passedUpPk:sum(packetBytes) 8569
+scalar RSVPTE4.LSR2.ppp[2].ppp passedUpPk:sum(packetBytes) 8097
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -4213,12 +4059,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR2.ppp[2].ppp rxPkOk:count 268
+scalar RSVPTE4.LSR2.ppp[2].ppp rxPkOk:count 266
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR2.ppp[2].ppp rxPkOk:sum(packetBytes) 10445
+scalar RSVPTE4.LSR2.ppp[2].ppp rxPkOk:sum(packetBytes) 9959
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -4556,7 +4402,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR3.ppp[0].queue queueLength:timeavg 0.00171261867182
+scalar RSVPTE4.LSR3.ppp[0].queue queueLength:timeavg 0.00175269139182
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -4577,7 +4423,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR3.ppp[0].queue queueBitLength:timeavg 4.1502903846747
+scalar RSVPTE4.LSR3.ppp[0].queue queueBitLength:timeavg 4.1677767349718
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -4586,21 +4432,21 @@ attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR3.ppp[0].queue queueingTime:histogram
 field count 291
-field mean 0.00029426437660137
-field stddev 0.0021927854149933
+field mean 0.00030114972368041
+field stddev 0.0021934303577315
 field min 0
 field max 0.021334898355
-field sum 0.085630933591
-field sqrsum 0.0014196074173911
+field sum 0.087634569591
+field sqrsum 0.0014216207793404
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	283
-bin	0.0005	2
-bin	0.001	0
+bin	0	281
+bin	0.0005	3
+bin	0.001	1
 bin	0.0015	0
 bin	0.002	1
 bin	0.0025	0
@@ -4925,12 +4771,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[0].ppp passedUpPk:count 10355
+scalar RSVPTE4.LSR3.ppp[0].ppp passedUpPk:count 5173
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR3.ppp[0].ppp passedUpPk:sum(packetBytes) 1601470
+scalar RSVPTE4.LSR3.ppp[0].ppp passedUpPk:sum(packetBytes) 793110
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -4955,12 +4801,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[0].ppp rxPkOk:count 10355
+scalar RSVPTE4.LSR3.ppp[0].ppp rxPkOk:count 5173
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR3.ppp[0].ppp rxPkOk:sum(packetBytes) 1673955
+scalar RSVPTE4.LSR3.ppp[0].ppp rxPkOk:sum(packetBytes) 829321
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -5021,7 +4867,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR3.ppp[1].queue queueLength:timeavg 0.00083613776176
+scalar RSVPTE4.LSR3.ppp[1].queue queueLength:timeavg 0.00048324118412
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -5042,7 +4888,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR3.ppp[1].queue queueBitLength:timeavg 1.513136509617
+scalar RSVPTE4.LSR3.ppp[1].queue queueBitLength:timeavg 1.2273965583757
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -5050,34 +4896,34 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR3.ppp[1].queue queueingTime:histogram
-field count 5460
-field mean 7.6569392102564e-06
-field stddev 0.00023696195648929
+field count 265
+field mean 9.1177581909434e-05
+field stddev 0.001014291254666
 field min 0
 field max 0.015484540504
-field sum 0.041806888088
-field sqrsum 0.00030684825160669
+field sum 0.024162059206
+field sqrsum 0.0002738027399454
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	5440
-bin	0.0002	3
-bin	0.0004	5
+bin	0	260
+bin	0.0002	0
+bin	0.0004	0
 bin	0.0006	0
-bin	0.0008	1
-bin	0.001	2
-bin	0.0012	2
+bin	0.0008	2
+bin	0.001	1
+bin	0.0012	0
 bin	0.0014	0
 bin	0.0016	0
-bin	0.0018	1
-bin	0.002	2
+bin	0.0018	0
+bin	0.002	0
 bin	0.0022	0
 bin	0.0024	0
-bin	0.0026	1
-bin	0.0028	1
+bin	0.0026	0
+bin	0.0028	0
 bin	0.003	0
 bin	0.0032	0
 bin	0.0034	0
@@ -5161,25 +5007,25 @@ bin	0.0188	0
 bin	0.019	0
 bin	0.0192	0
 bin	0.0194	0
-scalar RSVPTE4.LSR3.ppp[1].queue outgoingPackets:count 5460
+scalar RSVPTE4.LSR3.ppp[1].queue outgoingPackets:count 265
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR3.ppp[1].queue outgoingPacketLengths:sum 6547920
+scalar RSVPTE4.LSR3.ppp[1].queue outgoingPacketLengths:sum 64560
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR3.ppp[1].queue outgoingPacketLengths:histogram
-field count 5460
-field mean 1199.2527472527
-field stddev 241.3073111061
+field count 265
+field mean 243.62264150943
+field stddev 490.52690541903
 field min 168
 field max 6496
-field sum 6547920
-field sqrsum 8170484352
+field sum 64560
+field sqrsum 79251072
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -5198,7 +5044,7 @@ bin	800	0
 bin	900	0
 bin	1000	0
 bin	1100	0
-bin	1200	5195
+bin	1200	0
 bin	1300	1
 bin	1400	0
 bin	1500	0
@@ -5284,25 +5130,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR3.ppp[1].queue incomingPackets:count 5460
+scalar RSVPTE4.LSR3.ppp[1].queue incomingPackets:count 265
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR3.ppp[1].queue incomingPacketLengths:sum 6547920
+scalar RSVPTE4.LSR3.ppp[1].queue incomingPacketLengths:sum 64560
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR3.ppp[1].queue incomingPacketLengths:histogram
-field count 5460
-field mean 1199.2527472527
-field stddev 241.3073111061
+field count 265
+field mean 243.62264150943
+field stddev 490.52690541903
 field min 168
 field max 6496
-field sum 6547920
-field sqrsum 8170484352
+field sum 64560
+field sqrsum 79251072
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -5321,7 +5167,7 @@ bin	800	0
 bin	900	0
 bin	1000	0
 bin	1100	0
-bin	1200	5195
+bin	1200	0
 bin	1300	1
 bin	1400	0
 bin	1500	0
@@ -5413,32 +5259,32 @@ par RSVPTE4.LSR3.ppp[1].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR3.ppp[1].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR3.ppp[1].ppp txPk:count 5460
+scalar RSVPTE4.LSR3.ppp[1].ppp txPk:count 265
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR3.ppp[1].ppp txPk:sum(packetBytes) 856710
+scalar RSVPTE4.LSR3.ppp[1].ppp txPk:sum(packetBytes) 9925
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[1].ppp rcvdPkFromHl:count 5460
+scalar RSVPTE4.LSR3.ppp[1].ppp rcvdPkFromHl:count 265
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR3.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 818490
+scalar RSVPTE4.LSR3.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 8070
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[1].ppp passedUpPk:count 275
+scalar RSVPTE4.LSR3.ppp[1].ppp passedUpPk:count 273
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR3.ppp[1].ppp passedUpPk:sum(packetBytes) 9853
+scalar RSVPTE4.LSR3.ppp[1].ppp passedUpPk:sum(packetBytes) 9669
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -5463,17 +5309,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[1].ppp rxPkOk:count 275
+scalar RSVPTE4.LSR3.ppp[1].ppp rxPkOk:count 273
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR3.ppp[1].ppp rxPkOk:sum(packetBytes) 11778
+scalar RSVPTE4.LSR3.ppp[1].ppp rxPkOk:sum(packetBytes) 11580
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[1].ppp transmissionState:timeavg 0.22845599996369
+scalar RSVPTE4.LSR3.ppp[1].ppp transmissionState:timeavg 0.002646666665
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -5529,7 +5375,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR3.ppp[2].queue queueLength:timeavg 0.00177528533844
+scalar RSVPTE4.LSR3.ppp[2].queue queueLength:timeavg 0.00187681913276
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -5550,7 +5396,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR3.ppp[2].queue queueBitLength:timeavg 5.6850787204992
+scalar RSVPTE4.LSR3.ppp[2].queue queueBitLength:timeavg 5.7598075931187
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -5559,22 +5405,22 @@ attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR3.ppp[2].queue queueingTime:histogram
 field count 5186
-field mean 1.7116133228307e-05
-field stddev 0.00057138374809205
+field mean 1.80950552715e-05
+field stddev 0.00057295523647435
 field min 0
 field max 0.026134898355
-field sum 0.088764266922
-field sqrsum 0.0016943149256401
+field sum 0.093840956638
+field sqrsum 0.0017038179473696
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	5176
-bin	0.0005	4
+bin	0	5174
+bin	0.0005	2
 bin	0.001	1
-bin	0.0015	0
+bin	0.0015	4
 bin	0.002	0
 bin	0.0025	0
 bin	0.003	0
@@ -5844,12 +5690,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[2].ppp passedUpPk:count 280
+scalar RSVPTE4.LSR3.ppp[2].ppp passedUpPk:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR3.ppp[2].ppp passedUpPk:sum(packetBytes) 9448
+scalar RSVPTE4.LSR3.ppp[2].ppp passedUpPk:sum(packetBytes) 9356
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -5874,12 +5720,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR3.ppp[2].ppp rxPkOk:count 280
+scalar RSVPTE4.LSR3.ppp[2].ppp rxPkOk:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR3.ppp[2].ppp rxPkOk:sum(packetBytes) 11408
+scalar RSVPTE4.LSR3.ppp[2].ppp rxPkOk:sum(packetBytes) 11309
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -6217,7 +6063,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[0].queue queueLength:timeavg 0.0012192649656
+scalar RSVPTE4.LSR4.ppp[0].queue queueLength:timeavg 0.0012676121066
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -6238,7 +6084,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR4.ppp[0].queue queueBitLength:timeavg 2.3240776813504
+scalar RSVPTE4.LSR4.ppp[0].queue queueBitLength:timeavg 2.3596611771264
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -6246,22 +6092,22 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[0].queue queueingTime:histogram
-field count 286
-field mean 0.00021315821076923
-field stddev 0.0021812778446566
+field count 289
+field mean 0.00021931005304498
+field stddev 0.0021718764324029
 field min 0
 field max 0.02604
-field sum 0.06096324828
-field sqrsum 0.0013690171320691
+field sum 0.06338060533
+field sqrsum 0.0013724096083536
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	280
+bin	0	281
 bin	0.0005	1
-bin	0.001	2
+bin	0.001	4
 bin	0.0015	0
 bin	0.002	0
 bin	0.0025	0
@@ -6326,25 +6172,25 @@ bin	0.0315	0
 bin	0.032	0
 bin	0.0325	0
 bin	0.033	0
-scalar RSVPTE4.LSR4.ppp[0].queue outgoingPackets:count 286
+scalar RSVPTE4.LSR4.ppp[0].queue outgoingPackets:count 289
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[0].queue outgoingPacketLengths:sum 82304
+scalar RSVPTE4.LSR4.ppp[0].queue outgoingPacketLengths:sum 84512
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[0].queue outgoingPacketLengths:histogram
-field count 286
-field mean 287.77622377622
-field stddev 765.06159751625
+field count 289
+field mean 292.42906574394
+field stddev 762.4258679716
 field min 168
 field max 12000
-field sum 82304
-field sqrsum 190501120
+field sum 84512
+field sqrsum 192126208
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -6354,7 +6200,7 @@ bin	-inf	0
 bin	0	250
 bin	200	10
 bin	400	1
-bin	600	18
+bin	600	21
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -6443,25 +6289,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR4.ppp[0].queue incomingPackets:count 286
+scalar RSVPTE4.LSR4.ppp[0].queue incomingPackets:count 289
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[0].queue incomingPacketLengths:sum 82304
+scalar RSVPTE4.LSR4.ppp[0].queue incomingPacketLengths:sum 84512
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[0].queue incomingPacketLengths:histogram
-field count 286
-field mean 287.77622377622
-field stddev 765.06159751625
+field count 289
+field mean 292.42906574394
+field stddev 762.4258679716
 field min 168
 field max 12000
-field sum 82304
-field sqrsum 190501120
+field sum 84512
+field sqrsum 192126208
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -6471,7 +6317,7 @@ bin	-inf	0
 bin	0	250
 bin	200	10
 bin	400	1
-bin	600	18
+bin	600	21
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -6566,32 +6412,32 @@ par RSVPTE4.LSR4.ppp[0].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR4.ppp[0].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR4.ppp[0].ppp txPk:count 286
+scalar RSVPTE4.LSR4.ppp[0].ppp txPk:count 289
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR4.ppp[0].ppp txPk:sum(packetBytes) 12290
+scalar RSVPTE4.LSR4.ppp[0].ppp txPk:sum(packetBytes) 12587
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[0].ppp rcvdPkFromHl:count 286
+scalar RSVPTE4.LSR4.ppp[0].ppp rcvdPkFromHl:count 289
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR4.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 10288
+scalar RSVPTE4.LSR4.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 10564
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[0].ppp passedUpPk:count 5163
+scalar RSVPTE4.LSR4.ppp[0].ppp passedUpPk:count 10366
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR4.ppp[0].ppp passedUpPk:sum(packetBytes) 790792
+scalar RSVPTE4.LSR4.ppp[0].ppp passedUpPk:sum(packetBytes) 1602440
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -6616,17 +6462,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[0].ppp rxPkOk:count 5163
+scalar RSVPTE4.LSR4.ppp[0].ppp rxPkOk:count 10366
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR4.ppp[0].ppp rxPkOk:sum(packetBytes) 826933
+scalar RSVPTE4.LSR4.ppp[0].ppp rxPkOk:sum(packetBytes) 1675002
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[0].ppp transmissionState:timeavg 0.0032773333316
+scalar RSVPTE4.LSR4.ppp[0].ppp transmissionState:timeavg 0.0033565333316
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -6675,14 +6521,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, last"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[1].queue queueLength:max 2
+scalar RSVPTE4.LSR4.ppp[1].queue queueLength:max 3
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[1].queue queueLength:timeavg 0.0038793669396
+scalar RSVPTE4.LSR4.ppp[1].queue queueLength:timeavg 0.0082113746948995
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -6696,14 +6542,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar RSVPTE4.LSR4.ppp[1].queue queueBitLength:max 3040
+scalar RSVPTE4.LSR4.ppp[1].queue queueBitLength:max 3232
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR4.ppp[1].queue queueBitLength:timeavg 3.0152883629114
+scalar RSVPTE4.LSR4.ppp[1].queue queueBitLength:timeavg 7.9608695403636
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -6711,70 +6557,70 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[1].queue queueingTime:histogram
-field count 10372
-field mean 1.8701151849209e-05
-field stddev 0.00014635651302164
+field count 10374
+field mean 3.9576704718043e-05
+field stddev 0.00012831394322149
 field min 0
-field max 0.003383418387
-field sum 0.19396834698
-field sqrsum 0.00022577662547268
+field max 0.003586666667
+field sum 0.41056873474498
+field sqrsum 0.00018703488440529
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	10032
-bin	5e-05	0
-bin	0.0001	0
-bin	0.00015	1
-bin	0.0002	6
-bin	0.00025	235
-bin	0.0003	1
-bin	0.00035	5
-bin	0.0004	9
-bin	0.00045	1
-bin	0.0005	2
-bin	0.00055	0
+bin	0	5433
+bin	5e-05	4647
+bin	0.0001	3
+bin	0.00015	0
+bin	0.0002	5
+bin	0.00025	0
+bin	0.0003	0
+bin	0.00035	251
+bin	0.0004	0
+bin	0.00045	0
+bin	0.0005	0
+bin	0.00055	1
 bin	0.0006	0
-bin	0.00065	10
+bin	0.00065	1
 bin	0.0007	1
 bin	0.00075	0
 bin	0.0008	0
 bin	0.00085	3
 bin	0.0009	0
-bin	0.00095	9
-bin	0.001	2
+bin	0.00095	0
+bin	0.001	0
 bin	0.00105	0
-bin	0.0011	0
+bin	0.0011	1
 bin	0.00115	0
-bin	0.0012	10
-bin	0.00125	1
-bin	0.0013	3
-bin	0.00135	3
+bin	0.0012	0
+bin	0.00125	0
+bin	0.0013	10
+bin	0.00135	0
 bin	0.0014	0
-bin	0.00145	1
-bin	0.0015	9
-bin	0.00155	2
+bin	0.00145	0
+bin	0.0015	0
+bin	0.00155	0
 bin	0.0016	0
 bin	0.00165	0
 bin	0.0017	0
-bin	0.00175	12
-bin	0.0018	1
-bin	0.00185	1
+bin	0.00175	8
+bin	0.0018	0
+bin	0.00185	0
 bin	0.0019	0
-bin	0.00195	1
+bin	0.00195	0
 bin	0.002	0
-bin	0.00205	3
+bin	0.00205	0
 bin	0.0021	0
-bin	0.00215	1
+bin	0.00215	2
 bin	0.0022	0
 bin	0.00225	0
 bin	0.0023	0
 bin	0.00235	0
-bin	0.0024	0
+bin	0.0024	1
 bin	0.00245	0
-bin	0.0025	2
+bin	0.0025	0
 bin	0.00255	0
 bin	0.0026	1
 bin	0.00265	0
@@ -6782,20 +6628,20 @@ bin	0.0027	0
 bin	0.00275	0
 bin	0.0028	0
 bin	0.00285	0
-bin	0.0029	0
+bin	0.0029	1
 bin	0.00295	0
 bin	0.003	0
 bin	0.00305	0
-bin	0.0031	1
+bin	0.0031	2
 bin	0.00315	0
 bin	0.0032	1
 bin	0.00325	0
 bin	0.0033	0
-bin	0.00335	2
+bin	0.00335	0
 bin	0.0034	0
 bin	0.00345	0
 bin	0.0035	0
-bin	0.00355	0
+bin	0.00355	2
 bin	0.0036	0
 bin	0.00365	0
 bin	0.0037	0
@@ -6810,25 +6656,30 @@ bin	0.0041	0
 bin	0.00415	0
 bin	0.0042	0
 bin	0.00425	0
-scalar RSVPTE4.LSR4.ppp[1].queue outgoingPackets:count 10372
+bin	0.0043	0
+bin	0.00435	0
+bin	0.0044	0
+bin	0.00445	0
+bin	0.0045	0
+scalar RSVPTE4.LSR4.ppp[1].queue outgoingPackets:count 10374
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[1].queue outgoingPacketLengths:sum 12822480
+scalar RSVPTE4.LSR4.ppp[1].queue outgoingPacketLengths:sum 12825584
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[1].queue outgoingPacketLengths:histogram
-field count 10372
-field mean 1236.259159275
-field stddev 175.48934280418
+field count 10374
+field mean 1236.3200308463
+field stddev 175.40523147205
 field min 168
 field max 4768
-field sum 12822480
-field sqrsum 16171298944
+field sum 12825584
+field sqrsum 16175672448
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -6842,12 +6693,12 @@ bin	300	0
 bin	400	0
 bin	500	0
 bin	600	0
-bin	700	23
+bin	700	22
 bin	800	10
 bin	900	0
 bin	1000	0
 bin	1100	0
-bin	1200	10084
+bin	1200	10087
 bin	1300	0
 bin	1400	0
 bin	1500	0
@@ -6912,25 +6763,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR4.ppp[1].queue incomingPackets:count 10372
+scalar RSVPTE4.LSR4.ppp[1].queue incomingPackets:count 10374
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[1].queue incomingPacketLengths:sum 12822480
+scalar RSVPTE4.LSR4.ppp[1].queue incomingPacketLengths:sum 12825584
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[1].queue incomingPacketLengths:histogram
-field count 10372
-field mean 1236.259159275
-field stddev 175.48934280418
+field count 10374
+field mean 1236.3200308463
+field stddev 175.40523147205
 field min 168
 field max 4768
-field sum 12822480
-field sqrsum 16171298944
+field sum 12825584
+field sqrsum 16175672448
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -6944,12 +6795,12 @@ bin	300	0
 bin	400	0
 bin	500	0
 bin	600	0
-bin	700	23
+bin	700	22
 bin	800	10
 bin	900	0
 bin	1000	0
 bin	1100	0
-bin	1200	10084
+bin	1200	10087
 bin	1300	0
 bin	1400	0
 bin	1500	0
@@ -7020,22 +6871,22 @@ par RSVPTE4.LSR4.ppp[1].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR4.ppp[1].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR4.ppp[1].ppp txPk:count 10372
+scalar RSVPTE4.LSR4.ppp[1].ppp txPk:count 10374
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR4.ppp[1].ppp txPk:sum(packetBytes) 1675414
+scalar RSVPTE4.LSR4.ppp[1].ppp txPk:sum(packetBytes) 1675816
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[1].ppp rcvdPkFromHl:count 10372
+scalar RSVPTE4.LSR4.ppp[1].ppp rcvdPkFromHl:count 10374
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR4.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 1602810
+scalar RSVPTE4.LSR4.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 1603198
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -7080,7 +6931,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[1].ppp transmissionState:timeavg 0.44675866666295
+scalar RSVPTE4.LSR4.ppp[1].ppp transmissionState:timeavg 0.44686373332961
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -7129,14 +6980,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, last"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[2].queue queueLength:max 2
+scalar RSVPTE4.LSR4.ppp[2].queue queueLength:max 1
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[2].queue queueLength:timeavg 0.00048919659786
+scalar RSVPTE4.LSR4.ppp[2].queue queueLength:timeavg 0.00046615061916
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -7157,7 +7008,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR4.ppp[2].queue queueBitLength:timeavg 0.67940656268608
+scalar RSVPTE4.LSR4.ppp[2].queue queueBitLength:timeavg 0.66244472236288
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -7165,23 +7016,23 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[2].queue queueingTime:histogram
-field count 275
-field mean 8.8944835974545e-05
-field stddev 0.0012185575089697
+field count 273
+field mean 8.5375571274725e-05
+field stddev 0.00122066596301
 field min 0
 field max 0.020093333333
-field sum 0.024459829893
-field sqrsum 0.00040903335388843
+field sum 0.023307530958
+field sqrsum 0.00040727680073487
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	270
+bin	0	269
 bin	0.0005	2
 bin	0.001	1
-bin	0.0015	1
+bin	0.0015	0
 bin	0.002	0
 bin	0.0025	0
 bin	0.003	0
@@ -7230,25 +7081,25 @@ bin	0.024	0
 bin	0.0245	0
 bin	0.025	0
 bin	0.0255	0
-scalar RSVPTE4.LSR4.ppp[2].queue outgoingPackets:count 275
+scalar RSVPTE4.LSR4.ppp[2].queue outgoingPackets:count 273
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[2].queue outgoingPacketLengths:sum 78824
+scalar RSVPTE4.LSR4.ppp[2].queue outgoingPacketLengths:sum 77352
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[2].queue outgoingPacketLengths:histogram
-field count 275
-field mean 286.63272727273
-field stddev 766.5413409544
+field count 273
+field mean 283.34065934066
+field stddev 768.38170594085
 field min 168
 field max 12000
-field sum 78824
-field sqrsum 183592000
+field sum 77352
+field sqrsum 182508608
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -7258,7 +7109,7 @@ bin	-inf	0
 bin	0	249
 bin	200	0
 bin	400	0
-bin	600	19
+bin	600	17
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -7347,25 +7198,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR4.ppp[2].queue incomingPackets:count 275
+scalar RSVPTE4.LSR4.ppp[2].queue incomingPackets:count 273
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR4.ppp[2].queue incomingPacketLengths:sum 78824
+scalar RSVPTE4.LSR4.ppp[2].queue incomingPacketLengths:sum 77352
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR4.ppp[2].queue incomingPacketLengths:histogram
-field count 275
-field mean 286.63272727273
-field stddev 766.5413409544
+field count 273
+field mean 283.34065934066
+field stddev 768.38170594085
 field min 168
 field max 12000
-field sum 78824
-field sqrsum 183592000
+field sum 77352
+field sqrsum 182508608
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -7375,7 +7226,7 @@ bin	-inf	0
 bin	0	249
 bin	200	0
 bin	400	0
-bin	600	19
+bin	600	17
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -7470,32 +7321,32 @@ par RSVPTE4.LSR4.ppp[2].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR4.ppp[2].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR4.ppp[2].ppp txPk:count 275
+scalar RSVPTE4.LSR4.ppp[2].ppp txPk:count 273
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR4.ppp[2].ppp txPk:sum(packetBytes) 11778
+scalar RSVPTE4.LSR4.ppp[2].ppp txPk:sum(packetBytes) 11580
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[2].ppp rcvdPkFromHl:count 275
+scalar RSVPTE4.LSR4.ppp[2].ppp rcvdPkFromHl:count 273
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR4.ppp[2].ppp rcvdPkFromHl:sum(packetBytes) 9853
+scalar RSVPTE4.LSR4.ppp[2].ppp rcvdPkFromHl:sum(packetBytes) 9669
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[2].ppp passedUpPk:count 5459
+scalar RSVPTE4.LSR4.ppp[2].ppp passedUpPk:count 264
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR4.ppp[2].ppp passedUpPk:sum(packetBytes) 818469
+scalar RSVPTE4.LSR4.ppp[2].ppp passedUpPk:sum(packetBytes) 8049
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -7520,17 +7371,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[2].ppp rxPkOk:count 5459
+scalar RSVPTE4.LSR4.ppp[2].ppp rxPkOk:count 264
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR4.ppp[2].ppp rxPkOk:sum(packetBytes) 856682
+scalar RSVPTE4.LSR4.ppp[2].ppp rxPkOk:sum(packetBytes) 9897
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR4.ppp[2].ppp transmissionState:timeavg 0.00314079999834
+scalar RSVPTE4.LSR4.ppp[2].ppp transmissionState:timeavg 0.00308799999834
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -8182,12 +8033,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[0].ppp passedUpPk:count 10370
+scalar RSVPTE4.LSR5.ppp[0].ppp passedUpPk:count 10372
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR5.ppp[0].ppp passedUpPk:sum(packetBytes) 1602494
+scalar RSVPTE4.LSR5.ppp[0].ppp passedUpPk:sum(packetBytes) 1602882
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -8212,12 +8063,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[0].ppp rxPkOk:count 10370
+scalar RSVPTE4.LSR5.ppp[0].ppp rxPkOk:count 10372
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR5.ppp[0].ppp rxPkOk:sum(packetBytes) 1675084
+scalar RSVPTE4.LSR5.ppp[0].ppp rxPkOk:sum(packetBytes) 1675486
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -8278,7 +8129,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR5.ppp[1].queue queueLength:timeavg 0.01268320012984
+scalar RSVPTE4.LSR5.ppp[1].queue queueLength:timeavg 0.42356399993976
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -8299,7 +8150,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR5.ppp[1].queue queueBitLength:timeavg 15.82863376204
+scalar RSVPTE4.LSR5.ppp[1].queue queueBitLength:timeavg 528.6078719248
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -8307,13 +8158,13 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR5.ppp[1].queue queueingTime:histogram
-field count 14973
-field mean 4.235357019248e-05
-field stddev 0.00011362095529153
+field count 14976
+field mean 0.001414142628004
+field stddev 0.001031402200323
 field min 0
-field max 0.001960000008
-field sum 0.634160006492
-field sqrsum 0.00022014329036714
+field max 0.002173333333
+field sum 21.178199996988
+field sqrsum 0.045879258120131
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
@@ -8345,7 +8196,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	14973
+bin	0	14976
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -8371,25 +8222,25 @@ bin	0.44	0
 bin	0.46	0
 bin	0.48	0
 bin	0.5	0
-scalar RSVPTE4.LSR5.ppp[1].queue outgoingPackets:count 14973
+scalar RSVPTE4.LSR5.ppp[1].queue outgoingPackets:count 14976
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR5.ppp[1].queue outgoingPacketLengths:sum 18686304
+scalar RSVPTE4.LSR5.ppp[1].queue outgoingPacketLengths:sum 18690048
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR5.ppp[1].queue outgoingPacketLengths:histogram
-field count 14973
+field count 14976
 field mean 1248
 field stddev 0
 field min 1248
 field max 1248
-field sum 18686304
-field sqrsum 23320507392
+field sum 18690048
+field sqrsum 23325179904
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -8397,7 +8248,7 @@ attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
 bin	1247	0
-bin	1248	14973
+bin	1248	14976
 bin	1249	0
 statistic RSVPTE4.LSR5.ppp[1].queue flowQueueingTime:histogram
 field count 0
@@ -8415,25 +8266,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR5.ppp[1].queue incomingPackets:count 14973
+scalar RSVPTE4.LSR5.ppp[1].queue incomingPackets:count 14976
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR5.ppp[1].queue incomingPacketLengths:sum 18686304
+scalar RSVPTE4.LSR5.ppp[1].queue incomingPacketLengths:sum 18690048
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR5.ppp[1].queue incomingPacketLengths:histogram
-field count 14973
+field count 14976
 field mean 1248
 field stddev 0
 field min 1248
 field max 1248
-field sum 18686304
-field sqrsum 23320507392
+field sum 18690048
+field sqrsum 23325179904
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -8441,7 +8292,7 @@ attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
 bin	1247	0
-bin	1248	14973
+bin	1248	14976
 bin	1249	0
 scalar RSVPTE4.LSR5.ppp[1].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
@@ -8465,22 +8316,22 @@ par RSVPTE4.LSR5.ppp[1].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR5.ppp[1].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR5.ppp[1].ppp txPk:count 14973
+scalar RSVPTE4.LSR5.ppp[1].ppp txPk:count 14976
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR5.ppp[1].ppp txPk:sum(packetBytes) 2440599
+scalar RSVPTE4.LSR5.ppp[1].ppp txPk:sum(packetBytes) 2441088
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[1].ppp rcvdPkFromHl:count 14973
+scalar RSVPTE4.LSR5.ppp[1].ppp rcvdPkFromHl:count 14976
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR5.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 2335788
+scalar RSVPTE4.LSR5.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 2336256
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -8525,7 +8376,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[1].ppp transmissionState:timeavg 0.65082639990031
+scalar RSVPTE4.LSR5.ppp[1].ppp transmissionState:timeavg 0.65094933323363
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -8833,7 +8684,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR5.ppp[3].queue queueLength:timeavg 0.00020282111368
+scalar RSVPTE4.LSR5.ppp[3].queue queueLength:timeavg 0.00020362111368
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -8854,7 +8705,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR5.ppp[3].queue queueBitLength:timeavg 0.25212370114048
+scalar RSVPTE4.LSR5.ppp[3].queue queueBitLength:timeavg 0.25271250114048
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -8863,12 +8714,12 @@ attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR5.ppp[3].queue queueingTime:histogram
 field count 282
-field mean 3.5961190368794e-05
-field stddev 0.00053459277352316
+field mean 3.6103034340426e-05
+field stddev 0.00053465950710385
 field min 0
 field max 0.00892772235
-field sum 0.010141055684
-field sqrsum 8.0671515248387e-05
+field sum 0.010181055684
+field sqrsum 8.0694448581747e-05
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
@@ -9190,12 +9041,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[3].ppp passedUpPk:count 277
+scalar RSVPTE4.LSR5.ppp[3].ppp passedUpPk:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR5.ppp[3].ppp passedUpPk:sum(packetBytes) 8516
+scalar RSVPTE4.LSR5.ppp[3].ppp passedUpPk:sum(packetBytes) 8988
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -9220,12 +9071,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[3].ppp rxPkOk:count 277
+scalar RSVPTE4.LSR5.ppp[3].ppp rxPkOk:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR5.ppp[3].ppp rxPkOk:sum(packetBytes) 10455
+scalar RSVPTE4.LSR5.ppp[3].ppp rxPkOk:sum(packetBytes) 10941
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -9286,7 +9137,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR5.ppp[4].queue queueLength:timeavg 0.00014241505418
+scalar RSVPTE4.LSR5.ppp[4].queue queueLength:timeavg 0.00015121505418
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -9307,7 +9158,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR5.ppp[4].queue queueBitLength:timeavg 0.24337627553216
+scalar RSVPTE4.LSR5.ppp[4].queue queueBitLength:timeavg 0.24520667553216
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -9315,13 +9166,13 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR5.ppp[4].queue queueingTime:histogram
-field count 301
-field mean 2.3656985744186e-05
-field stddev 0.00012239094041066
+field count 302
+field mean 2.5035604996689e-05
+field stddev 0.00012451407498134
 field min 0
 field max 0.00124772235
-field sum 0.007120752709
-field sqrsum 4.6623182337063e-06
+field sum 0.007560752709
+field sqrsum 4.8559182337063e-06
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
@@ -9350,7 +9201,7 @@ bin	0.00036	0
 bin	0.00038	0
 bin	0.0004	0
 bin	0.00042	0
-bin	0.00044	9
+bin	0.00044	10
 bin	0.00046	0
 bin	0.00048	2
 bin	0.0005	0
@@ -9407,25 +9258,25 @@ bin	0.0015	0
 bin	0.00152	0
 bin	0.00154	0
 bin	0.00156	0
-scalar RSVPTE4.LSR5.ppp[4].queue outgoingPackets:count 301
+scalar RSVPTE4.LSR5.ppp[4].queue outgoingPackets:count 302
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR5.ppp[4].queue outgoingPacketLengths:sum 84480
+scalar RSVPTE4.LSR5.ppp[4].queue outgoingPacketLengths:sum 84688
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR5.ppp[4].queue outgoingPacketLengths:histogram
-field count 301
-field mean 280.66445182724
-field stddev 511.92852075798
+field count 302
+field mean 280.4238410596
+field stddev 511.09453829102
 field min 168
 field max 7072
-field sum 84480
-field sqrsum 102331776
+field sum 84688
+field sqrsum 102375040
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -9434,7 +9285,7 @@ attr unit b
 bin	-inf	0
 bin	0	0
 bin	100	250
-bin	200	19
+bin	200	20
 bin	300	0
 bin	400	0
 bin	500	0
@@ -9537,25 +9388,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR5.ppp[4].queue incomingPackets:count 301
+scalar RSVPTE4.LSR5.ppp[4].queue incomingPackets:count 302
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR5.ppp[4].queue incomingPacketLengths:sum 84480
+scalar RSVPTE4.LSR5.ppp[4].queue incomingPacketLengths:sum 84688
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR5.ppp[4].queue incomingPacketLengths:histogram
-field count 301
-field mean 280.66445182724
-field stddev 511.92852075798
+field count 302
+field mean 280.4238410596
+field stddev 511.09453829102
 field min 168
 field max 7072
-field sum 84480
-field sqrsum 102331776
+field sum 84688
+field sqrsum 102375040
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -9564,7 +9415,7 @@ attr unit b
 bin	-inf	0
 bin	0	0
 bin	100	250
-bin	200	19
+bin	200	20
 bin	300	0
 bin	400	0
 bin	500	0
@@ -9673,32 +9524,32 @@ par RSVPTE4.LSR5.ppp[4].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR5.ppp[4].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR5.ppp[4].ppp txPk:count 301
+scalar RSVPTE4.LSR5.ppp[4].ppp txPk:count 302
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR5.ppp[4].ppp txPk:sum(packetBytes) 12667
+scalar RSVPTE4.LSR5.ppp[4].ppp txPk:sum(packetBytes) 12700
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[4].ppp rcvdPkFromHl:count 301
+scalar RSVPTE4.LSR5.ppp[4].ppp rcvdPkFromHl:count 302
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR5.ppp[4].ppp rcvdPkFromHl:sum(packetBytes) 10560
+scalar RSVPTE4.LSR5.ppp[4].ppp rcvdPkFromHl:sum(packetBytes) 10586
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[4].ppp passedUpPk:count 5172
+scalar RSVPTE4.LSR5.ppp[4].ppp passedUpPk:count 5173
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR5.ppp[4].ppp passedUpPk:sum(packetBytes) 791778
+scalar RSVPTE4.LSR5.ppp[4].ppp passedUpPk:sum(packetBytes) 791870
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -9723,17 +9574,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[4].ppp rxPkOk:count 5172
+scalar RSVPTE4.LSR5.ppp[4].ppp rxPkOk:count 5173
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR5.ppp[4].ppp rxPkOk:sum(packetBytes) 827982
+scalar RSVPTE4.LSR5.ppp[4].ppp rxPkOk:sum(packetBytes) 828081
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR5.ppp[4].ppp transmissionState:timeavg 0.003377866665
+scalar RSVPTE4.LSR5.ppp[4].ppp transmissionState:timeavg 0.003386666665
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -10066,7 +9917,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR6.ppp[0].queue queueLength:timeavg 0.0002107934491
+scalar RSVPTE4.LSR6.ppp[0].queue queueLength:timeavg 0.00020172678244
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -10087,7 +9938,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR6.ppp[0].queue queueBitLength:timeavg 0.22262544599872
+scalar RSVPTE4.LSR6.ppp[0].queue queueBitLength:timeavg 0.21595237933696
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -10095,24 +9946,24 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR6.ppp[0].queue queueingTime:histogram
-field count 268
-field mean 3.9327136026119e-05
-field stddev 0.00041905305497076
+field count 266
+field mean 3.791856812782e-05
+field stddev 0.00041985254857043
 field min 0
 field max 0.006541578638
-field sum 0.010539672455
-field sqrsum 4.7301153721355e-05
+field sum 0.010086339122
+field sqrsum 4.7095642610546e-05
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	263
+bin	0	262
 bin	0.0001	0
 bin	0.0002	0
 bin	0.0003	0
-bin	0.0004	1
+bin	0.0004	0
 bin	0.0005	0
 bin	0.0006	0
 bin	0.0007	0
@@ -10191,25 +10042,25 @@ bin	0.0079	0
 bin	0.008	0
 bin	0.0081	0
 bin	0.0082	0
-scalar RSVPTE4.LSR6.ppp[0].queue outgoingPackets:count 268
+scalar RSVPTE4.LSR6.ppp[0].queue outgoingPackets:count 266
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR6.ppp[0].queue outgoingPacketLengths:sum 68552
+scalar RSVPTE4.LSR6.ppp[0].queue outgoingPacketLengths:sum 64776
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR6.ppp[0].queue outgoingPacketLengths:histogram
-field count 268
-field mean 255.79104477612
-field stddev 545.69702634676
+field count 266
+field mean 243.51879699248
+field stddev 519.38344582426
 field min 168
 field max 7648
-field sum 68552
-field sqrsum 97043648
+field sum 64776
+field sqrsum 87260352
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -10219,7 +10070,7 @@ bin	-inf	0
 bin	0	250
 bin	200	1
 bin	400	0
-bin	600	11
+bin	600	10
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -10231,7 +10082,7 @@ bin	2200	0
 bin	2400	0
 bin	2600	0
 bin	2800	0
-bin	3000	2
+bin	3000	1
 bin	3200	0
 bin	3400	0
 bin	3600	0
@@ -10281,25 +10132,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR6.ppp[0].queue incomingPackets:count 268
+scalar RSVPTE4.LSR6.ppp[0].queue incomingPackets:count 266
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR6.ppp[0].queue incomingPacketLengths:sum 68552
+scalar RSVPTE4.LSR6.ppp[0].queue incomingPacketLengths:sum 64776
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR6.ppp[0].queue incomingPacketLengths:histogram
-field count 268
-field mean 255.79104477612
-field stddev 545.69702634676
+field count 266
+field mean 243.51879699248
+field stddev 519.38344582426
 field min 168
 field max 7648
-field sum 68552
-field sqrsum 97043648
+field sum 64776
+field sqrsum 87260352
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -10309,7 +10160,7 @@ bin	-inf	0
 bin	0	250
 bin	200	1
 bin	400	0
-bin	600	11
+bin	600	10
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -10321,7 +10172,7 @@ bin	2200	0
 bin	2400	0
 bin	2600	0
 bin	2800	0
-bin	3000	2
+bin	3000	1
 bin	3200	0
 bin	3400	0
 bin	3600	0
@@ -10377,22 +10228,22 @@ par RSVPTE4.LSR6.ppp[0].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR6.ppp[0].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR6.ppp[0].ppp txPk:count 268
+scalar RSVPTE4.LSR6.ppp[0].ppp txPk:count 266
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR6.ppp[0].ppp txPk:sum(packetBytes) 10445
+scalar RSVPTE4.LSR6.ppp[0].ppp txPk:sum(packetBytes) 9959
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR6.ppp[0].ppp rcvdPkFromHl:count 268
+scalar RSVPTE4.LSR6.ppp[0].ppp rcvdPkFromHl:count 266
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR6.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 8569
+scalar RSVPTE4.LSR6.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 8097
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -10437,7 +10288,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR6.ppp[0].ppp transmissionState:timeavg 0.00278533333166
+scalar RSVPTE4.LSR6.ppp[0].ppp transmissionState:timeavg 0.00265573333166
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -10493,7 +10344,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR6.ppp[1].queue queueLength:timeavg 8.320000002e-05
+scalar RSVPTE4.LSR6.ppp[1].queue queueLength:timeavg 7.653333336e-05
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -10514,7 +10365,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR6.ppp[1].queue queueBitLength:timeavg 0.04624000001472
+scalar RSVPTE4.LSR6.ppp[1].queue queueBitLength:timeavg 0.04133333335296
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -10522,20 +10373,20 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR6.ppp[1].queue queueingTime:histogram
-field count 277
-field mean 1.5018050545126e-05
-field stddev 0.00012580837517546
+field count 279
+field mean 1.3715651139785e-05
+field stddev 0.00011490313751608
 field min 0
 field max 0.00132
-field sum 0.004160000001
-field sqrsum 4.4309333352267e-06
+field sum 0.003826666668
+field sqrsum 3.7228444461156e-06
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	273
+bin	0	274
 bin	2e-05	0
 bin	4e-05	0
 bin	6e-05	0
@@ -10550,7 +10401,7 @@ bin	0.00022	0
 bin	0.00024	0
 bin	0.00026	0
 bin	0.00028	0
-bin	0.0003	0
+bin	0.0003	2
 bin	0.00032	0
 bin	0.00034	0
 bin	0.00036	0
@@ -10582,7 +10433,7 @@ bin	0.00086	0
 bin	0.00088	0
 bin	0.0009	0
 bin	0.00092	0
-bin	0.00094	3
+bin	0.00094	2
 bin	0.00096	0
 bin	0.00098	0
 bin	0.001	0
@@ -10619,25 +10470,25 @@ bin	0.0016	0
 bin	0.00162	0
 bin	0.00164	0
 bin	0.00166	0
-scalar RSVPTE4.LSR6.ppp[1].queue outgoingPackets:count 277
+scalar RSVPTE4.LSR6.ppp[1].queue outgoingPackets:count 279
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR6.ppp[1].queue outgoingPacketLengths:sum 68128
+scalar RSVPTE4.LSR6.ppp[1].queue outgoingPacketLengths:sum 71904
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR6.ppp[1].queue outgoingPacketLengths:histogram
-field count 277
-field mean 245.94945848375
-field stddev 324.90473125644
+field count 279
+field mean 257.72043010753
+field stddev 365.52722439697
 field min 168
 field max 4192
-field sum 68128
-field sqrsum 45891456
+field sum 71904
+field sqrsum 55674752
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -10651,7 +10502,7 @@ bin	300	0
 bin	400	0
 bin	500	1
 bin	600	0
-bin	700	21
+bin	700	22
 bin	800	1
 bin	900	0
 bin	1000	0
@@ -10674,7 +10525,7 @@ bin	2600	0
 bin	2700	0
 bin	2800	0
 bin	2900	0
-bin	3000	0
+bin	3000	1
 bin	3100	0
 bin	3200	0
 bin	3300	0
@@ -10713,25 +10564,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR6.ppp[1].queue incomingPackets:count 277
+scalar RSVPTE4.LSR6.ppp[1].queue incomingPackets:count 279
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR6.ppp[1].queue incomingPacketLengths:sum 68128
+scalar RSVPTE4.LSR6.ppp[1].queue incomingPacketLengths:sum 71904
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR6.ppp[1].queue incomingPacketLengths:histogram
-field count 277
-field mean 245.94945848375
-field stddev 324.90473125644
+field count 279
+field mean 257.72043010753
+field stddev 365.52722439697
 field min 168
 field max 4192
-field sum 68128
-field sqrsum 45891456
+field sum 71904
+field sqrsum 55674752
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -10745,7 +10596,7 @@ bin	300	0
 bin	400	0
 bin	500	1
 bin	600	0
-bin	700	21
+bin	700	22
 bin	800	1
 bin	900	0
 bin	1000	0
@@ -10768,7 +10619,7 @@ bin	2600	0
 bin	2700	0
 bin	2800	0
 bin	2900	0
-bin	3000	0
+bin	3000	1
 bin	3100	0
 bin	3200	0
 bin	3300	0
@@ -10813,22 +10664,22 @@ par RSVPTE4.LSR6.ppp[1].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR6.ppp[1].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR6.ppp[1].ppp txPk:count 277
+scalar RSVPTE4.LSR6.ppp[1].ppp txPk:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR6.ppp[1].ppp txPk:sum(packetBytes) 10455
+scalar RSVPTE4.LSR6.ppp[1].ppp txPk:sum(packetBytes) 10941
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR6.ppp[1].ppp rcvdPkFromHl:count 277
+scalar RSVPTE4.LSR6.ppp[1].ppp rcvdPkFromHl:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR6.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 8516
+scalar RSVPTE4.LSR6.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 8988
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -10873,7 +10724,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR6.ppp[1].ppp transmissionState:timeavg 0.00278799999834
+scalar RSVPTE4.LSR6.ppp[1].ppp transmissionState:timeavg 0.00291759999834
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -11235,9 +11086,9 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR7.ppp[0].queue queueingTime:histogram
-field count 280
-field mean 6.9838770625e-05
-field stddev 0.0010541043146252
+field count 279
+field mean 7.0089088799283e-05
+field stddev 0.0010559901468183
 field min 0
 field max 0.017584281563
 field sum 0.019554855775
@@ -11248,7 +11099,7 @@ attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
 bin	-inf	0
-bin	0	277
+bin	0	276
 bin	0.0005	1
 bin	0.001	1
 bin	0.0015	0
@@ -11293,25 +11144,25 @@ bin	0.0205	0
 bin	0.021	0
 bin	0.0215	0
 bin	0.022	0
-scalar RSVPTE4.LSR7.ppp[0].queue outgoingPackets:count 280
+scalar RSVPTE4.LSR7.ppp[0].queue outgoingPackets:count 279
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR7.ppp[0].queue outgoingPacketLengths:sum 75584
+scalar RSVPTE4.LSR7.ppp[0].queue outgoingPacketLengths:sum 74848
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR7.ppp[0].queue outgoingPacketLengths:histogram
-field count 280
-field mean 269.94285714286
-field stddev 735.52633748817
+field count 279
+field mean 268.27240143369
+field stddev 736.31576375072
 field min 168
 field max 11680
-field sum 75584
-field sqrsum 171342080
+field sum 74848
+field sqrsum 170800384
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -11321,7 +11172,7 @@ bin	-inf	0
 bin	0	250
 bin	200	10
 bin	400	0
-bin	600	14
+bin	600	13
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -11408,25 +11259,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR7.ppp[0].queue incomingPackets:count 280
+scalar RSVPTE4.LSR7.ppp[0].queue incomingPackets:count 279
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR7.ppp[0].queue incomingPacketLengths:sum 75584
+scalar RSVPTE4.LSR7.ppp[0].queue incomingPacketLengths:sum 74848
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR7.ppp[0].queue incomingPacketLengths:histogram
-field count 280
-field mean 269.94285714286
-field stddev 735.52633748817
+field count 279
+field mean 268.27240143369
+field stddev 736.31576375072
 field min 168
 field max 11680
-field sum 75584
-field sqrsum 171342080
+field sum 74848
+field sqrsum 170800384
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -11436,7 +11287,7 @@ bin	-inf	0
 bin	0	250
 bin	200	10
 bin	400	0
-bin	600	14
+bin	600	13
 bin	800	0
 bin	1000	0
 bin	1200	2
@@ -11529,22 +11380,22 @@ par RSVPTE4.LSR7.ppp[0].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR7.ppp[0].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR7.ppp[0].ppp txPk:count 280
+scalar RSVPTE4.LSR7.ppp[0].ppp txPk:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR7.ppp[0].ppp txPk:sum(packetBytes) 11408
+scalar RSVPTE4.LSR7.ppp[0].ppp txPk:sum(packetBytes) 11309
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR7.ppp[0].ppp rcvdPkFromHl:count 280
+scalar RSVPTE4.LSR7.ppp[0].ppp rcvdPkFromHl:count 279
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR7.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 9448
+scalar RSVPTE4.LSR7.ppp[0].ppp rcvdPkFromHl:sum(packetBytes) 9356
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
@@ -11589,7 +11440,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR7.ppp[0].ppp transmissionState:timeavg 0.0030421333316
+scalar RSVPTE4.LSR7.ppp[0].ppp transmissionState:timeavg 0.0030157333316
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -11645,7 +11496,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar RSVPTE4.LSR7.ppp[1].queue queueLength:timeavg 4.533333334e-05
+scalar RSVPTE4.LSR7.ppp[1].queue queueLength:timeavg 6.346666668e-05
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -11666,7 +11517,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar RSVPTE4.LSR7.ppp[1].queue queueBitLength:timeavg 0.01837013333824
+scalar RSVPTE4.LSR7.ppp[1].queue queueBitLength:timeavg 0.03171626667648
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -11674,13 +11525,13 @@ attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetP
 attr title "queue bit length, timeavg"
 attr unit b
 statistic RSVPTE4.LSR7.ppp[1].queue queueingTime:histogram
-field count 5173
-field mean 4.3817256272956e-07
-field stddev 2.2582599897052e-05
+field count 5174
+field mean 6.1332302551218e-07
+field stddev 2.5857331156414e-05
 field min 0
 field max 0.00132
-field sum 0.002266666667
-field sqrsum 2.6385777784089e-06
+field sum 0.003173333334
+field sqrsum 3.4606222234578e-06
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
@@ -11732,7 +11583,7 @@ bin	0.00082	0
 bin	0.00084	0
 bin	0.00086	0
 bin	0.00088	0
-bin	0.0009	0
+bin	0.0009	1
 bin	0.00092	0
 bin	0.00094	1
 bin	0.00096	0
@@ -11771,25 +11622,25 @@ bin	0.0016	0
 bin	0.00162	0
 bin	0.00164	0
 bin	0.00166	0
-scalar RSVPTE4.LSR7.ppp[1].queue outgoingPackets:count 5173
+scalar RSVPTE4.LSR7.ppp[1].queue outgoingPackets:count 5174
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar RSVPTE4.LSR7.ppp[1].queue outgoingPacketLengths:sum 6335504
+scalar RSVPTE4.LSR7.ppp[1].queue outgoingPacketLengths:sum 6336240
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR7.ppp[1].queue outgoingPacketLengths:histogram
-field count 5173
-field mean 1224.7253044655
-field stddev 245.57566831126
+field count 5174
+field mean 1224.6308465404
+field stddev 245.64591332566
 field min 168
 field max 4192
-field sum 6335504
-field sqrsum 8071161984
+field sum 6336240
+field sqrsum 8071703680
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
@@ -11803,7 +11654,7 @@ bin	300	0
 bin	400	0
 bin	500	0
 bin	600	0
-bin	700	17
+bin	700	18
 bin	800	10
 bin	900	0
 bin	1000	0
@@ -11865,25 +11716,25 @@ attr unit s
 bin	-inf	0
 bin	0	0
 bin	1	0
-scalar RSVPTE4.LSR7.ppp[1].queue incomingPackets:count 5173
+scalar RSVPTE4.LSR7.ppp[1].queue incomingPackets:count 5174
 attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar RSVPTE4.LSR7.ppp[1].queue incomingPacketLengths:sum 6335504
+scalar RSVPTE4.LSR7.ppp[1].queue incomingPacketLengths:sum 6336240
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths, sum"
 attr unit b
 statistic RSVPTE4.LSR7.ppp[1].queue incomingPacketLengths:histogram
-field count 5173
-field mean 1224.7253044655
-field stddev 245.57566831126
+field count 5174
+field mean 1224.6308465404
+field stddev 245.64591332566
 field min 168
 field max 4192
-field sum 6335504
-field sqrsum 8071161984
+field sum 6336240
+field sqrsum 8071703680
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
@@ -11897,7 +11748,7 @@ bin	300	0
 bin	400	0
 bin	500	0
 bin	600	0
-bin	700	17
+bin	700	18
 bin	800	10
 bin	900	0
 bin	1000	0
@@ -11965,32 +11816,32 @@ par RSVPTE4.LSR7.ppp[1].ppp stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.LSR7.ppp[1].ppp stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.LSR7.ppp[1].ppp txPk:count 5173
+scalar RSVPTE4.LSR7.ppp[1].ppp txPk:count 5174
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar RSVPTE4.LSR7.ppp[1].ppp txPk:sum(packetBytes) 828149
+scalar RSVPTE4.LSR7.ppp[1].ppp txPk:sum(packetBytes) 828248
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar RSVPTE4.LSR7.ppp[1].ppp rcvdPkFromHl:count 5173
+scalar RSVPTE4.LSR7.ppp[1].ppp rcvdPkFromHl:count 5174
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar RSVPTE4.LSR7.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 791938
+scalar RSVPTE4.LSR7.ppp[1].ppp rcvdPkFromHl:sum(packetBytes) 792030
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.LSR7.ppp[1].ppp passedUpPk:count 301
+scalar RSVPTE4.LSR7.ppp[1].ppp passedUpPk:count 302
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.LSR7.ppp[1].ppp passedUpPk:sum(packetBytes) 10560
+scalar RSVPTE4.LSR7.ppp[1].ppp passedUpPk:sum(packetBytes) 10586
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -12015,17 +11866,17 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.LSR7.ppp[1].ppp rxPkOk:count 301
+scalar RSVPTE4.LSR7.ppp[1].ppp rxPkOk:count 302
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.LSR7.ppp[1].ppp rxPkOk:sum(packetBytes) 12667
+scalar RSVPTE4.LSR7.ppp[1].ppp rxPkOk:sum(packetBytes) 12700
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar RSVPTE4.LSR7.ppp[1].ppp transmissionState:timeavg 0.22083973336427
+scalar RSVPTE4.LSR7.ppp[1].ppp transmissionState:timeavg 0.22086613336427
 attr interpolationmode sample-hold
 attr recordingmode timeavg
 attr source transmissionStateChanged
@@ -12370,12 +12221,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.host1.ppp[0].ppp passedUpPk:count 4
+scalar RSVPTE4.host1.ppp[0].ppp passedUpPk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.host1.ppp[0].ppp passedUpPk:sum(packetBytes) 224
+scalar RSVPTE4.host1.ppp[0].ppp passedUpPk:sum(packetBytes) 168
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -12400,12 +12251,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.host1.ppp[0].ppp rxPkOk:count 4
+scalar RSVPTE4.host1.ppp[0].ppp rxPkOk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.host1.ppp[0].ppp rxPkOk:sum(packetBytes) 252
+scalar RSVPTE4.host1.ppp[0].ppp rxPkOk:sum(packetBytes) 189
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -13082,12 +12933,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.host2.ppp[0].ppp passedUpPk:count 4
+scalar RSVPTE4.host2.ppp[0].ppp passedUpPk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.host2.ppp[0].ppp passedUpPk:sum(packetBytes) 224
+scalar RSVPTE4.host2.ppp[0].ppp passedUpPk:sum(packetBytes) 168
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -13112,12 +12963,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.host2.ppp[0].ppp rxPkOk:count 4
+scalar RSVPTE4.host2.ppp[0].ppp rxPkOk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.host2.ppp[0].ppp rxPkOk:sum(packetBytes) 252
+scalar RSVPTE4.host2.ppp[0].ppp rxPkOk:sum(packetBytes) 189
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -13743,12 +13594,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.host3.ppp[0].ppp passedUpPk:count 14970
+scalar RSVPTE4.host3.ppp[0].ppp passedUpPk:count 14972
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.host3.ppp[0].ppp passedUpPk:sum(packetBytes) 2335320
+scalar RSVPTE4.host3.ppp[0].ppp passedUpPk:sum(packetBytes) 2335632
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -13773,12 +13624,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.host3.ppp[0].ppp rxPkOk:count 14970
+scalar RSVPTE4.host3.ppp[0].ppp rxPkOk:count 14972
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.host3.ppp[0].ppp rxPkOk:sum(packetBytes) 2440110
+scalar RSVPTE4.host3.ppp[0].ppp rxPkOk:sum(packetBytes) 2440436
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk
@@ -14000,12 +13851,12 @@ par RSVPTE4.host3.udp icmpv6Module "\"^.ipv6.icmpv6\""
 par RSVPTE4.host3.udp crcMode "\"declared\""
 attr enum disabled,declared,computed
 par RSVPTE4.host3.udp defaultMulticastLoop true
-scalar RSVPTE4.host3.udp packetReceived:count 14970
+scalar RSVPTE4.host3.udp packetReceived:count 14972
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceived
 attr title "packets received, count"
-scalar RSVPTE4.host3.udp packetReceived:sum(packetBytes) 2035920
+scalar RSVPTE4.host3.udp packetReceived:sum(packetBytes) 2036192
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceived
@@ -14020,7 +13871,7 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
-scalar RSVPTE4.host3.udp passedUpPk:count 14970
+scalar RSVPTE4.host3.udp passedUpPk:count 14972
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
@@ -14078,77 +13929,104 @@ par RSVPTE4.host3.app[0] stopOperationExtraTime -1s
 attr unit s
 par RSVPTE4.host3.app[0] stopOperationTimeout 2s
 attr unit s
-scalar RSVPTE4.host3.app[0] packetReceived:count 14970
+scalar RSVPTE4.host3.app[0] packetReceived:count 14972
 attr interpolationmode none
 attr recordingmode count
 attr source packetReceived
 attr title "packets received, count"
-scalar RSVPTE4.host3.app[0] packetReceived:sum(packetBytes) 1916160
+scalar RSVPTE4.host3.app[0] packetReceived:sum(packetBytes) 1916416
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
 statistic RSVPTE4.host3.app[0] endToEndDelay:histogram
-field count 14970
-field mean 0.055543765718366
-field stddev 0.0060423903195576
-field min 0.045866666665
-field max 0.080373333333
-field sum 831.49017280393
-field sqrsum 46.730620742049
+field count 14972
+field mean 0.058201440346369
+field stddev 0.0017793596375945
+field min 0.055866666665
+field max 0.065493333331
+field sum 871.39196486584
+field sqrsum 50.763667454743
 attr interpolationmode none
 attr recordingmode histogram
 attr source dataAge(packetReceived)
 attr title "end-to-end delay"
 attr unit s
 bin	-inf	0
-bin	0.044	0
-bin	0.0448	0
-bin	0.0456	98
-bin	0.0464	0
-bin	0.0472	2
-bin	0.048	4938
-bin	0.0488	12
-bin	0.0496	128
-bin	0.0504	7
-bin	0.0512	4
-bin	0.052	1
-bin	0.0528	3
+bin	0.0534	0
 bin	0.0536	0
+bin	0.0538	0
+bin	0.054	0
+bin	0.0542	0
 bin	0.0544	0
+bin	0.0546	0
+bin	0.0548	0
+bin	0.055	0
 bin	0.0552	0
-bin	0.056	4876
-bin	0.0568	1
-bin	0.0576	13
-bin	0.0584	0
-bin	0.0592	0
+bin	0.0554	0
+bin	0.0556	0
+bin	0.0558	93
+bin	0.056	4890
+bin	0.0562	0
+bin	0.0564	0
+bin	0.0566	0
+bin	0.0568	2
+bin	0.057	1
+bin	0.0572	2
+bin	0.0574	0
+bin	0.0576	2
+bin	0.0578	0
+bin	0.058	86
+bin	0.0582	4890
+bin	0.0584	4
+bin	0.0586	0
+bin	0.0588	1
+bin	0.059	0
+bin	0.0592	3
+bin	0.0594	3
+bin	0.0596	0
+bin	0.0598	2
 bin	0.06	0
+bin	0.0602	4967
+bin	0.0604	10
+bin	0.0606	0
 bin	0.0608	0
-bin	0.0616	0
-bin	0.0624	4797
-bin	0.0632	10
-bin	0.064	11
-bin	0.0648	10
-bin	0.0656	1
+bin	0.061	0
+bin	0.0612	0
+bin	0.0614	4
+bin	0.0616	3
+bin	0.0618	1
+bin	0.062	2
+bin	0.0622	0
+bin	0.0624	1
+bin	0.0626	1
+bin	0.0628	1
+bin	0.063	0
+bin	0.0632	1
+bin	0.0634	0
+bin	0.0636	0
+bin	0.0638	0
+bin	0.064	0
+bin	0.0642	0
+bin	0.0644	0
+bin	0.0646	0
+bin	0.0648	0
+bin	0.065	1
+bin	0.0652	0
+bin	0.0654	1
+bin	0.0656	0
+bin	0.0658	0
+bin	0.066	0
+bin	0.0662	0
 bin	0.0664	0
+bin	0.0666	0
+bin	0.0668	0
+bin	0.067	0
 bin	0.0672	0
-bin	0.068	20
-bin	0.0688	0
-bin	0.0696	20
-bin	0.0704	1
-bin	0.0712	0
-bin	0.072	2
-bin	0.0728	2
-bin	0.0736	2
-bin	0.0744	2
-bin	0.0752	3
-bin	0.076	0
-bin	0.0768	0
-bin	0.0776	4
-bin	0.0784	0
-bin	0.0792	0
-bin	0.08	2
-bin	0.0808	0
+bin	0.0674	0
+bin	0.0676	0
+bin	0.0678	0
+bin	0.068	0
 par RSVPTE4.host3.at typename "\"inet.common.MessageDispatcher\""
 par RSVPTE4.host3.at displayStringTextFormat "\"processed %p pk (%l)\""
 par RSVPTE4.host3.at forwardServiceRegistration true
@@ -15077,12 +14955,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar RSVPTE4.host5.ppp[0].ppp passedUpPk:count 4
+scalar RSVPTE4.host5.ppp[0].ppp passedUpPk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar RSVPTE4.host5.ppp[0].ppp passedUpPk:sum(packetBytes) 224
+scalar RSVPTE4.host5.ppp[0].ppp passedUpPk:sum(packetBytes) 168
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSentToUpper
@@ -15107,12 +14985,12 @@ attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsInterfaceDown(packetDropped)
 attr title "packet drop: interface down, sum(packetBytes)"
-scalar RSVPTE4.host5.ppp[0].ppp rxPkOk:count 4
+scalar RSVPTE4.host5.ppp[0].ppp rxPkOk:count 3
 attr interpolationmode none
 attr recordingmode count
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar RSVPTE4.host5.ppp[0].ppp rxPkOk:sum(packetBytes) 252
+scalar RSVPTE4.host5.ppp[0].ppp rxPkOk:sum(packetBytes) 189
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source rxPkOk

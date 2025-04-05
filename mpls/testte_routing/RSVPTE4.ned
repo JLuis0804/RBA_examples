@@ -96,7 +96,7 @@ network RSVPTE4
                 @display("p=100,100;is=s");
         }
     connections:
-        LSR1.pppg[0] <--> {  delay = 15ms; datarate = 150kbps; } <--> LSR2.pppg[0];
+        LSR1.pppg[0] <--> {  delay = 15ms; datarate = 600kbps; } <--> LSR2.pppg[0];
         LSR1.pppg[1] <--> {  delay = 5ms; datarate = 600kbps; } <--> LSR3.pppg[0];
         host2.pppg++ <--> {  delay = 10ms; datarate = 600kbps; } <--> LSR1.pppg[2];
         host1.pppg++ <--> {  delay = 10ms; datarate = 600kbps; } <--> LSR1.pppg[3];

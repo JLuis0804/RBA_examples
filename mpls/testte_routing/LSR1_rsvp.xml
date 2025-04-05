@@ -8,7 +8,7 @@
 			<path>
 				<lspid>100</lspid>
 
-				<bandwidth>100000</bandwidth>
+				<bandwidth>600000</bandwidth>
 				<route>
 					<node>LSR1%routerId</node>
 					<node>LSR2%routerId</node>
